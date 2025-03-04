@@ -7,4 +7,4 @@
 
 - 🏫 A college sophomore student.
 - 💖 Love Animes, Genshin impact.
-- ⭐ Write the best timer software using C language.
+- ⭐ Write the best timer software using C.
