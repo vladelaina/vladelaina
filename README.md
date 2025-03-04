@@ -1,7 +1,7 @@
 ## 👋 This is @vladelaina!
 [![email](https://img.shields.io/badge/-zmh@lightxi.com-black?labelColor=black&logo=gmail&logoColor=white&style=flat-square)](mailto:vladelaina@gmail.com)
 
-Open Source Enthusiast/
+Open Source Enthusiast/Arch zealot
 
 
 ### 💭 **About Me**
