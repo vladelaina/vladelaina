@@ -3,12 +3,9 @@
 
 Open Source Enthusiast / Arch zealot / Anime Enthusiast
 
+### 🍉 Tech Stack / 🔨 Tools I Use
 
-### 💭 **About Me**
-
-- 🏫 A college sophomore student.
-- 💖 Love Animes, Genshin impact.
-- ⭐ Write the best timer software using C.
+[![My Skills](https://skillicons.dev/icons?i=c,arch,git)](https://skillicons.dev)
 
 
 ### 🍏 Contribution
