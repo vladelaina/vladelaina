@@ -1,6 +1,6 @@
 
 <a href="#">
-<img  align="right" width="60%"  src="https://github-readme-stats.vercel.app/api?username=vladelaina&disable_animations=true&show_icons=true&rank_icon=percentile&count_private=true&theme=dracula"/>
+<img  align="right" width="57%"  src="https://github-readme-stats.vercel.app/api?username=vladelaina&disable_animations=true&show_icons=true&rank_icon=percentile&count_private=true&theme=dracula"/>
 </a>
 
 ### 💭 **About Me**
