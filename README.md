@@ -5,5 +5,5 @@
 [![Vladelaina's GitHub stats](https://github-readme-stats.vercel.app/api?username=vladelaina&show_icons=true&theme=tokyonight)](https://github.com/anuraghazra/github-readme-stats)
 
 ### 🍉Languages and Tools:
-[![My Skills](https://skillicons.dev/icons?i=arch,neovim,c,rust,go,lua,python,threejs)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=arch,neovim,c,rust,go,lua,python,sass)](https://skillicons.dev)
 
