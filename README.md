@@ -7,7 +7,3 @@
 ### Languages and Tools:
 [![My Skills](https://skillicons.dev/icons?i=arch,neovim,c,rust,go,lua,python,threejs)](https://skillicons.dev)
 
-<br>
-<div width="100%" align="center">
-  <a align="left" href="https://github.com/vladelaina/Catime" title="Catime"><img align="left" height="115" src="https://github-readme-stats.vercel.app/api/pin/?username=vladelaina&repo=Catime&theme=react&border_color=61dafb&border_radius=10"></a>
-</div>
