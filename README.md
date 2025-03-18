@@ -12,5 +12,5 @@ My username "vladelaina" is a combination of two of my favorite anime protagonis
 
 
 ### 🍉Tools and Languages:
-[![My Skills](https://skillicons.dev/icons?i=arch,neovim,c,rust,go,lua,python,sass)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=arch,neovim,c)](https://skillicons.dev)
 
