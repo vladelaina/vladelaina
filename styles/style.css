@@ -1601,3 +1601,337 @@ p {
     background-color: rgba(247, 125, 170, 0.25);
     transform: translateY(-3px);
 }
+
+/* --- 响应式设计 --- */
+@media (max-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .hero-content {
+        gap: 3rem;
+    }
+
+    .hero-visual {
+        margin-right: -3rem;
+    }
+
+    .hero-screenshot {
+         width: 250px !important; /* 保持圆形 */
+         height: 250px !important; /* 保持圆形 */
+         transform: scale(1.3) perspective(800px);
+    }
+    .hero-screenshot:hover {
+         transform: scale(1.25) perspective(800px);
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 15px; /* 稍微减小基础字号 */
+    }
+
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Hero 区域调整 */
+    .hero {
+        padding: 3rem 0 4rem;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .hero-text {
+        max-width: 100%;
+        order: 2; /* 文字在图片下方 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        margin-bottom: 0.5rem;
+    }
+    .hero-title:hover { /* 移动端禁用悬停动画 */
+        animation: none;
+        color: var(--heading-color);
+        background-image: none;
+        text-shadow: none;
+    }
+
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+     .hero-subtitle:hover { /* 移动端禁用悬停动画 */
+        animation: none;
+        text-shadow: none;
+        letter-spacing: -0.5px;
+    }
+     .hero-subtitle:hover .cute-emoji {
+        animation: none;
+     }
+
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        max-width: 90%;
+    }
+     .hero-description:hover .desc-word { /* 移动端禁用悬停动画 */
+        animation: none;
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+    }
+
+    .hero-visual {
+        order: 1; /* 图片在文字上方 */
+        margin-right: 0;
+        flex-basis: auto;
+        width: 60%;
+        max-width: 220px; /* 限制最大宽度 */
+    }
+
+    .hero-screenshot {
+        width: 100% !important; /* 宽度自适应容器 */
+        height: auto !important; /* 高度自适应 */
+        max-width: 220px; /* 匹配容器宽度 */
+        max-height: 220px;
+        transform: scale(1) perspective(0); /* 移除3D效果 */
+        border-width: 4px;
+        box-shadow: 0 8px 25px rgba(122, 162, 247, 0.15);
+    }
+    .hero-screenshot:hover {
+        transform: scale(1); /* 移除悬停缩放 */
+        box-shadow: 0 8px 25px rgba(122, 162, 247, 0.15);
+        border-color: rgba(255, 255, 255, 0.85);
+    }
+
+    /* 移除背景形状或减小 */
+    .shape1 { width: 100px; height: 100px; top: 5%; left: -5%; }
+    .shape2 { width: 50px; height: 50px; bottom: 10%; right: 5%; }
+    .shape3 { width: 80px; height: 80px; top: 30%; right: 10%; }
+
+    /* Section 区域调整 */
+    .features, .about-me, .contact-section {
+        padding: 4rem 0;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 0.6rem;
+    }
+     .section-title:hover { /* 移动端禁用悬停动画 */
+        animation: none;
+        color: var(--heading-color);
+        background-image: none;
+        transform: translateY(0);
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 3rem;
+    }
+     .section-subtitle:hover {
+        color: var(--secondary-color);
+     }
+
+
+    /* 特性/技能/项目 卡片调整 */
+    .features-grid {
+        grid-template-columns: 1fr; /* 单列显示 */
+        gap: 1.8rem;
+    }
+
+    .feature-card {
+        padding: 2rem 1.5rem;
+    }
+    .feature-card:hover {
+        transform: translateY(0); /* 移除悬停上移效果 */
+        box-shadow: var(--card-shadow); /* 恢复默认阴影 */
+        animation: none; /* 移除悬停动画 */
+        background: #f8faff; /* 恢复默认背景 */
+    }
+     .feature-card:hover::before {
+        opacity: 0; /* 移除悬停伪元素效果 */
+     }
+     .feature-card:hover .feature-icon {
+        animation: none; /* 移除图标动画 */
+        transform: scale(1); /* 恢复图标大小 */
+        color: var(--primary-color); /* 恢复图标颜色 */
+     }
+      .feature-card h3 {
+        font-size: 1.3rem;
+      }
+      .feature-card h3:hover {
+         transform: translateZ(0); /* 移除标题悬停效果 */
+         animation: none;
+         color: var(--heading-color); /* 恢复标题颜色 */
+      }
+      .feature-card h3:hover::after {
+         width: 0; /* 移除标题下划线 */
+         opacity: 0;
+      }
+      .feature-card:hover p {
+         color: var(--text-color); /* 恢复段落颜色 */
+         transform: translateZ(0); /* 移除段落效果 */
+      }
+
+    /* 关于我 */
+    .guide-content {
+        padding: 2rem 1.5rem;
+    }
+    .info-card {
+        padding: 1.5rem;
+    }
+    .info-card h3 {
+        font-size: 1.2rem;
+    }
+
+    /* 联系方式 */
+    .contact-links {
+        gap: 1.5rem;
+    }
+    .contact-link-item {
+        font-size: 1.4rem;
+    }
+     .contact-link-item:hover {
+        transform: translateY(0); /* 移除悬停效果 */
+        color: var(--text-color);
+     }
+     .contact-link-item:hover i {
+        transform: scale(1);
+     }
+
+    /* 页脚 */
+    .main-footer {
+        padding: 2.5rem 0 2rem;
+        font-size: 0.85rem;
+    }
+
+    /* 滚动进度指示器 - 已有768px的媒体查询，这里可以微调或确认 */
+    .scroll-progress-container {
+        width: 55px;
+        height: 55px;
+        bottom: 15px;
+        right: 15px;
+    }
+     .scroll-progress-container:hover {
+        transform: scale(1); /* 禁用悬停放大 */
+        box-shadow: 0 4px 20px rgba(122, 162, 247, 0.25),
+                    inset 0 2px 10px rgba(255, 255, 255, 0.8),
+                    inset 0 -2px 5px rgba(122, 162, 247, 0.1);
+        border-color: rgba(255, 255, 255, 0.8);
+     }
+     .scroll-progress-container:hover .scroll-progress-glow {
+        opacity: 0; /* 禁用悬停发光 */
+        animation: none;
+     }
+     .scroll-progress-container:hover .particle {
+        animation: none; /* 禁用悬停粒子 */
+     }
+     .scroll-progress-container:hover .scroll-progress-circle-fill {
+        filter: drop-shadow(0 0 3px rgba(122, 162, 247, 0.7)) url(#glow); /* 恢复默认 */
+        animation: none;
+     }
+     .scroll-progress-container:hover .scroll-progress-circle-deco {
+        opacity: 0; /* 禁用装饰 */
+        animation: none;
+     }
+     .scroll-progress-container:hover .scroll-progress-icon {
+        transform: translate(-50%, -50%); /* 恢复默认位置 */
+        color: var(--primary-color); /* 恢复默认颜色 */
+        animation: none;
+        text-shadow: 0 2px 5px rgba(122, 162, 247, 0.2);
+     }
+     .scroll-progress-container:hover .star {
+        opacity: 0; /* 禁用星星 */
+        animation: none;
+     }
+     .scroll-progress-container:hover .emoji {
+        opacity: 0; /* 禁用表情 */
+        animation: none;
+        transform: scale(0);
+     }
+     .scroll-progress-container:hover .scroll-progress-percentage {
+        opacity: 0; /* 禁用百分比 */
+     }
+     .scroll-progress-container:hover .scroll-progress-tooltip {
+        opacity: 0; /* 禁用工具提示 */
+        transform: translateX(-50%) scale(0);
+     }
+
+    .scroll-progress-icon {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px; /* 进一步减小基础字号 */
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .cta-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.2rem;
+    }
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+    .info-card h3 {
+        font-size: 1.1rem;
+    }
+    .info-card p {
+        font-size: 0.9rem;
+    }
+
+     /* 滚动进度指示器 - 进一步减小 */
+    .scroll-progress-container {
+        width: 50px;
+        height: 50px;
+    }
+    .scroll-progress-icon {
+        font-size: 1rem;
+    }
+}
