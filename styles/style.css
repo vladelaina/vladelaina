@@ -389,7 +389,12 @@ body {
     transform: translateY(-10px);
     box-shadow: var(--card-hover-shadow);
     border-color: rgba(122, 162, 247, 0.2);
-    animation: jelly 0.7s ease;
+    animation: jelly 0.7s ease; /* 恢复父元素的动画 */
+}
+
+/* 当鼠标悬停在特性卡片上时，为项目图标添加果冻动画 */
+.feature-card:hover .project-icon-img {
+    animation: jelly 0.7s ease; /* 复用现有的果冻动画 */
 }
 
 .feature-icon {
@@ -1934,4 +1939,20 @@ p {
     .scroll-progress-icon {
         font-size: 1rem;
     }
+}
+
+/* 添加 @keyframes jelly 定义 */
+@keyframes jelly {
+  0%, 100% {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
 }
