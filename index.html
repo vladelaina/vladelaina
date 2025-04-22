@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="vladelaina - 个人主页 | [你的头衔/简介]">
-    <title>vladelaina - 个人主页</title>
+    <title data-i18n="pageTitle">vladelaina - 个人主页</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +19,11 @@
     <link rel="icon" type="image/png" href="assets/vladelaina.jpg">
 </head>
 <body>
+    <!-- 语言切换按钮 -->
+    <div class="language-switcher">
+        <button class="language-switch-btn active" data-lang="zh" data-i18n="languageZH">中文</button>
+        <button class="language-switch-btn" data-lang="en" data-i18n="languageEN">English</button>
+    </div>
 
     <div class="scroll-progress-container" id="scrollProgressContainer">
         <div class="scroll-progress-glow"></div>
@@ -67,7 +72,7 @@
             <span class="star star-6">✧</span>
         </div>
         <div class="scroll-progress-percentage">0%</div>
-        <div class="scroll-progress-tooltip">返回顶部</div>
+        <div class="scroll-progress-tooltip" data-i18n="backToTop">返回顶部</div>
     </div>
 
     <main>
@@ -75,8 +80,8 @@
             <div class="container hero-content">
                 <div class="hero-text" data-aos="fade-right">
                     <h1 class="hero-title">vladelaina</h1>
-                    <p class="hero-subtitle">信仰开源之道，崇尚 Arch 之美，沉溺二次元世界<span class="cute-emoji">👋</span></p>
-                    <p class="hero-description">
+                    <p class="hero-subtitle" data-i18n="heroSubtitle">信仰开源之道，崇尚 Arch 之美，沉溺二次元世界<span class="cute-emoji">👋</span></p>
+                    <p class="hero-description" data-i18n="heroDescription">
                         代码是诗，终端是画布，内核如灵魂般自由。
                         喜欢折腾，不怕重构，享受每一次从零开始的过程。
                         用 Nvim 写情书，用 Git 记录心跳，
@@ -84,10 +89,10 @@
                     </p>
                     
                     <a href="#contact" class="cta-button primary">
-                        <i class="fas fa-envelope"></i> <span>联系我</span>
+                        <i class="fas fa-envelope"></i> <span data-i18n="contactMe">联系我</span>
                     </a>
                     <a href="(๑˃̵ᴗ˂̵)و 正在编译中..." class="cta-button secondary" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-file-alt"></i> <span>查看简历</span>
+                        <i class="fas fa-file-alt"></i> <span data-i18n="viewResume">查看简历</span>
                     </a>
                 </div>
                 <div class="hero-visual" data-aos="fade-left" data-aos-delay="200">
@@ -103,7 +108,7 @@
 
         <section class="about-me guide-section" id="about">
             <div class="container">
-                 <h2 class="section-title" data-aos="fade-up">关于我 <i class="fas fa-user-circle" style="color: var(--primary-color);"></i></h2>
+                 <h2 class="section-title" data-aos="fade-up"><span data-i18n="aboutMe">关于我</span> <i class="fas fa-user-circle" style="color: var(--primary-color);"></i></h2>
                  <article class="guide-content" data-aos="fade-up" data-aos-delay="200">
                      <div class="guide-section-content">
                          <div class="feature-box">
@@ -112,12 +117,12 @@
                             </div>
                         </div>
                         <div class="info-card">
-                            <h3><i class="fas fa-info-circle"></i> 关于我的名字</h3>
-                            <p>"Vladelaina" 是结合了我最喜欢的两部动漫女主角的名字——《<a href="https://en.wikipedia.org/wiki/86_(novel_series)" target="_blank" rel="noopener noreferrer">86-不存在的战区-</a>》中的 <strong>Vladilena Milizé</strong> 和《<a href="https://en.wikipedia.org/wiki/Wandering_Witch:_The_Journey_of_Elaina" target="_blank" rel="noopener noreferrer">魔女之旅</a>》中的 <strong>Elaina</strong>。</p>
-                            <p>如果你还没看过这两部作品，真心推荐你去看看，剧情和角色都非常精彩，绝对值得一追！</p>
+                            <h3><i class="fas fa-info-circle"></i> <span data-i18n="aboutMyName">关于我的名字</span></h3>
+                            <p data-i18n="aboutNameDesc1">"Vladelaina" 是结合了我最喜欢的两部动漫女主角的名字——《<a href="https://en.wikipedia.org/wiki/86_(novel_series)" target="_blank" rel="noopener noreferrer">86-不存在的战区-</a>》中的 <strong>Vladilena Milizé</strong> 和《<a href="https://en.wikipedia.org/wiki/Wandering_Witch:_The_Journey_of_Elaina" target="_blank" rel="noopener noreferrer">魔女之旅</a>》中的 <strong>Elaina</strong>。</p>
+                            <p data-i18n="aboutNameDesc2">如果你还没看过这两部作品，真心推荐你去看看，剧情和角色都非常精彩，绝对值得一追！</p>
                             <div class="anime-icons">
-                                <span class="anime-icon">86</span>
-                                <span class="anime-icon">魔女之旅</span>
+                                <span class="anime-icon" data-i18n="animeTitle1">86</span>
+                                <span class="anime-icon" data-i18n="animeTitle2">魔女之旅</span>
                             </div>
                         </div>
                      </div>
@@ -127,26 +132,26 @@
 
         <section class="features" id="projects">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">项目展示 <i class="fas fa-project-diagram" style="color: var(--accent-color);"></i></h2>
-                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">我参与或独立完成的一些项目</p>
+                <h2 class="section-title" data-aos="fade-up"><span data-i18n="projects">项目展示</span> <i class="fas fa-project-diagram" style="color: var(--accent-color);"></i></h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="projectsSubtitle">我参与或独立完成的一些项目</p>
                 <div class="features-grid">
                     <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
                         <img src="assets/catime.png" alt="Catime项目图标" class="project-icon-img" style="width:168px; height:168px; margin-bottom: 1.5rem; object-fit: contain;">
                         <h3><a href="https://github.com/vladelaina/Catime" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Catime</a></h3>
-                        <p>一款简洁的Windows倒计时工具，支持番茄时钟功能，具有透明界面和丰富的自定义选项。该项目在GitHub上获得了1.4k+的星标。</p>
+                        <p data-i18n="catimeDesc">一款简洁的Windows倒计时工具，支持番茄时钟功能，具有透明界面和丰富的自定义选项。该项目在GitHub上获得了1.4k+的星标。</p>
                          <div style="margin-top: 1rem;">
-                             <span class="feature-tag">C</span>
-                             <span class="feature-tag">Windows</span>
-                             <span class="feature-tag">桌面工具</span>
+                             <span class="feature-tag" data-i18n="tagC">C</span>
+                             <span class="feature-tag" data-i18n="tagWindows">Windows</span>
+                             <span class="feature-tag" data-i18n="tagDesktopTool">桌面工具</span>
                          </div>
                         <div style="margin-top: 1rem;">
-                            <a href="https://catime.vladelaina.com" class="text-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> 官方网站</a>
-                            <a href="https://github.com/vladelaina/Catime" class="text-link" target="_blank" rel="noopener noreferrer" style="margin-left: 1rem;"><i class="fab fa-github"></i> 查看源码</a>
+                            <a href="https://catime.vladelaina.com" class="text-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> <span data-i18n="officialWebsite">官方网站</span></a>
+                            <a href="https://github.com/vladelaina/Catime" class="text-link" target="_blank" rel="noopener noreferrer" style="margin-left: 1rem;"><i class="fab fa-github"></i> <span data-i18n="viewSource">查看源码</span></a>
                         </div>
                     </div>
                     <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                        <h3> 待续 </h3>
-                        <p> 待续 </p>
+                        <h3 data-i18n="comingSoon"> 待续 </h3>
+                        <p data-i18n="comingSoon"> 待续 </p>
                     </div>
                 </div>
             </div>
@@ -154,36 +159,36 @@
 
         <section class="features" id="skills">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">技能栈 <i class="fas fa-cogs" style="color: #78c2ad;"></i></h2>
-                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">我掌握的一些技术和工具</p>
+                <h2 class="section-title" data-aos="fade-up"><span data-i18n="skills">技能栈</span> <i class="fas fa-cogs" style="color: #78c2ad;"></i></h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="skillsSubtitle">我掌握的一些技术和工具</p>
                 <div class="features-grid">
                     <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="feature-icon">
                            <i class="fab fa-html5"></i>
                         </div>
-                        <h3>前端技术</h3>
-                        <p>HTML, CSS, JavaScript</p>
+                        <h3 data-i18n="frontendTech">前端技术</h3>
+                        <p data-i18n="frontendSkills">HTML, CSS, JavaScript</p>
                     </div>
                     <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="feature-icon">
                            <i class="fas fa-code"></i>
                         </div>
-                        <h3>编程语言</h3>
-                        <p>C</p>
+                        <h3 data-i18n="programmingLanguages">编程语言</h3>
+                        <p data-i18n="programmingSkills">C</p>
                     </div>
                     <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
                         <div class="feature-icon">
                            <i class="fab fa-linux"></i>
                         </div>
-                        <h3>系统 & 环境</h3>
-                        <p>Arch Linux, wezterm</p>
+                        <h3 data-i18n="systemAndEnvironment">系统 & 环境</h3>
+                        <p data-i18n="systemSkills">Arch Linux, wezterm</p>
                     </div>
                     <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
                         <div class="feature-icon">
                            <i class="fas fa-tools"></i>
                         </div>
-                        <h3>工具 & 其他</h3>
-                        <p>Nvim, Git</p>
+                        <h3 data-i18n="toolsAndOthers">工具 & 其他</h3>
+                        <p data-i18n="toolsSkills">Nvim, Git</p>
                     </div>
                 </div>
             </div>
@@ -191,17 +196,17 @@
 
         <section class="contact-section" id="contact" style="padding: 4rem 0; background-color: var(--background-alt); text-align: center;">
             <div class="container">
-                <h2 class="section-title" data-aos="fade-up">联系我 <i class="fas fa-paper-plane" style="color: #f77daa;"></i></h2>
-                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">欢迎通过以下方式与我交流</p>
+                <h2 class="section-title" data-aos="fade-up"><span data-i18n="contact">联系我</span> <i class="fas fa-paper-plane" style="color: #f77daa;"></i></h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="contactSubtitle">欢迎通过以下方式与我交流</p>
                 <div class="contact-links" data-aos="fade-up" data-aos-delay="200" style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
                     <a href="mailto:[你的邮箱地址]" class="contact-link-item" style="color: var(--text-color); font-size: 1.5rem; transition: color 0.3s ease;">
-                        <i class="fas fa-envelope"></i><span style="font-size: 1rem; margin-left: 0.5rem; display: none;"> 邮箱</span>
+                        <i class="fas fa-envelope"></i><span style="font-size: 1rem; margin-left: 0.5rem; display: none;" data-i18n="email"> 邮箱</span>
                     </a>
                      <a href="https://github.com/vladelaina" target="_blank" rel="noopener noreferrer" class="contact-link-item" style="color: var(--text-color); font-size: 1.5rem; transition: color 0.3s ease;">
-                        <i class="fab fa-github"></i><span style="font-size: 1rem; margin-left: 0.5rem; display: none;"> GitHub</span>
+                        <i class="fab fa-github"></i><span style="font-size: 1rem; margin-left: 0.5rem; display: none;" data-i18n="github"> GitHub</span>
                     </a>
                     <a href="https://space.bilibili.com/1862395225" target="_blank" rel="noopener noreferrer" class="contact-link-item" style="color: var(--text-color); font-size: 1.5rem; transition: color 0.3s ease;">
-                        <i class="fab fa-bilibili"></i><span style="font-size: 1rem; margin-left: 0.5rem; display: none;"> Bilibili</span>
+                        <i class="fab fa-bilibili"></i><span style="font-size: 1rem; margin-left: 0.5rem; display: none;" data-i18n="bilibili"> Bilibili</span>
                     </a>
                 </div>
             </div>
@@ -210,11 +215,12 @@
 
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2024 vladelaina. All Rights Reserved.</p>
+            <p data-i18n="copyright">&copy; 2024 vladelaina. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="scripts/i18n.js"></script>
     <script src="scripts/app.js"></script>
 </body>
 </html>

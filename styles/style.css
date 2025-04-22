@@ -1956,3 +1956,87 @@ p {
     transform: scale(0.95, 1.05);
   }
 }
+
+/* 语言切换按钮样式 */
+.language-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 6px;
+    border-radius: 30px;
+    padding: 5px;
+    background: rgba(30, 30, 40, 0.8);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.language-switcher:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.language-switch-btn {
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.7;
+    position: relative;
+    overflow: hidden;
+}
+
+.language-switch-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.language-switch-btn:hover {
+    opacity: 1;
+}
+
+.language-switch-btn:hover::before {
+    width: 150px;
+    height: 150px;
+}
+
+.language-switch-btn.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    opacity: 1;
+    box-shadow: 0 2px 8px rgba(122, 162, 247, 0.3);
+}
+
+.language-switch-btn.active::before {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+@media (max-width: 768px) {
+    .language-switcher {
+        top: 10px;
+        right: 10px;
+        padding: 4px;
+    }
+    
+    .language-switch-btn {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+}
