@@ -134,17 +134,8 @@ function switchLanguage(lang) {
         currentLang = lang;
         updatePageContent();
         
-        // 保存用户语言偏好
-        localStorage.setItem('vladelaina_language', lang);
-        
-        // 更新语言切换按钮状态
-        document.querySelectorAll('.language-switch-btn').forEach(btn => {
-            if (btn.dataset.lang === lang) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
+        // 记录到控制台
+        console.log(`语言已切换至: ${lang}`);
     }
 }
 
@@ -180,31 +171,21 @@ function updatePageContent() {
 
 // 初始化语言设置
 function initLanguage() {
-    // 从本地存储获取用户语言偏好
-    const savedLang = localStorage.getItem('vladelaina_language');
+    // 获取浏览器语言
+    const browserLang = navigator.language || navigator.userLanguage;
     
-    // 如果有已保存的语言偏好，使用它
-    if (savedLang && translations[savedLang]) {
-        currentLang = savedLang;
+    // 如果浏览器语言是中文，使用中文，否则使用英文
+    if (browserLang && browserLang.startsWith('zh')) {
+        currentLang = 'zh';
     } else {
-        // 否则尝试根据浏览器语言设置自动检测
-        const browserLang = navigator.language || navigator.userLanguage;
-        if (browserLang && browserLang.startsWith('zh')) {
-            currentLang = 'zh';
-        } else if (browserLang && browserLang.startsWith('en')) {
-            currentLang = 'en';
-        }
+        currentLang = 'en';
     }
     
     // 应用初始语言
     updatePageContent();
     
-    // 更新语言切换按钮状态
-    document.querySelectorAll('.language-switch-btn').forEach(btn => {
-        if (btn.dataset.lang === currentLang) {
-            btn.classList.add('active');
-        }
-    });
+    // 记录到控制台
+    console.log(`根据浏览器语言(${browserLang})自动选择: ${currentLang}`);
 }
 
 // 导出函数和变量

@@ -2040,3 +2040,11 @@ p {
         font-size: 0.75rem;
     }
 }
+
+/* 去掉语言切换按钮样式，因为不再需要 */
+.language-switcher,
+.language-switch-btn,
+.language-switch-btn.active,
+.language-switch-btn:hover {
+    display: none;
+}

@@ -10,14 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 初始化多语言支持
     if (window.i18n && typeof window.i18n.initLanguage === 'function') {
         window.i18n.initLanguage();
-        
-        // 为语言切换按钮添加事件监听
-        document.querySelectorAll('.language-switch-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const lang = this.dataset.lang;
-                window.i18n.switchLanguage(lang);
-            });
-        });
     }
 
     // 滚动进度指示器功能
