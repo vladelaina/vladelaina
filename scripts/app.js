@@ -157,7 +157,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 悬停时显示完整的工具提示
         progressContainer.addEventListener('mouseenter', function() {
-            document.querySelector('.scroll-progress-tooltip').textContent = "返回顶部";
+            const tooltipElement = document.querySelector('.scroll-progress-tooltip');
+            // 如果i18n可用，使用翻译系统更新工具提示
+            if (window.i18n && typeof window.i18n.t === 'function') {
+                tooltipElement.textContent = window.i18n.t('backToTop');
+            } else {
+                tooltipElement.textContent = "返回顶部";
+            }
         });
         
         // 监听滚动事件，使用防抖处理

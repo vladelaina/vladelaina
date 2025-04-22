@@ -150,6 +150,9 @@ function switchLanguage(lang) {
 
 // 更新页面内容
 function updatePageContent() {
+    // 更新页面标题
+    document.title = t('pageTitle');
+    
     // 根据数据属性更新所有可翻译元素
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
