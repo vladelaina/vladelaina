@@ -111,6 +111,45 @@ async function loadBlogPost(slug) {
         // 处理代码高亮
         document.querySelectorAll('pre code').forEach(block => {
             hljs.highlightBlock(block);
+            
+            // 获取代码文本
+            const codeText = block.textContent.trim();
+            const lines = codeText.split('\n');
+            const firstLine = lines[0];
+            
+            // 检查是否是emoji提交格式的代码块
+            const emojiCommitPattern = /^[^\s]+\s+[a-z]+(\([^)]*\))?: .+$/;
+            const isEmojiCommit = emojiCommitPattern.test(firstLine);
+            
+            // 如果是emoji提交格式，添加特殊类名
+            if (isEmojiCommit) {
+                block.parentNode.classList.add('emoji-commit');
+            }
+            
+            // 为所有代码块添加复制按钮
+            const copyBtn = document.createElement('button');
+            copyBtn.className = 'copy-button';
+            copyBtn.innerHTML = `<i class="far fa-copy"></i> ${window.i18n.t('copyCode')}`;
+            
+            // 添加复制功能
+            copyBtn.addEventListener('click', function() {
+                navigator.clipboard.writeText(codeText).then(() => {
+                    // 显示复制成功状态
+                    copyBtn.classList.add('copied');
+                    copyBtn.innerHTML = `<i class="fas fa-check"></i> ${window.i18n.t('copied')}`;
+                    
+                    // 2秒后恢复原状
+                    setTimeout(() => {
+                        copyBtn.classList.remove('copied');
+                        copyBtn.innerHTML = `<i class="far fa-copy"></i> ${window.i18n.t('copyCode')}`;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                });
+            });
+            
+            // 将按钮添加到pre标签中
+            block.parentNode.appendChild(copyBtn);
         });
         
         // 处理图片点击预览

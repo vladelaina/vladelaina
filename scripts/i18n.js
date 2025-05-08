@@ -57,7 +57,9 @@ const translations = {
         'copyright': '© 2024 vladelaina. All Rights Reserved.',
         
         // 其他
-        'backToTop': '返回顶部'
+        'backToTop': '返回顶部',
+        'copyCode': '复制',
+        'copied': '已复制'
     },
     'en': {
         // Navigation and toggle button
@@ -116,7 +118,9 @@ const translations = {
         'copyright': '© 2024 vladelaina. All Rights Reserved.',
         
         // Others
-        'backToTop': 'Back to Top'
+        'backToTop': 'Back to Top',
+        'copyCode': 'Copy',
+        'copied': 'Copied'
     }
 };
 
