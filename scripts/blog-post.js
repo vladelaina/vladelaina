@@ -99,9 +99,6 @@ async function loadBlogPost(slug) {
         // 渲染文章内容
         document.getElementById('blog-post-content').innerHTML = marked.parse(content);
         
-        // 设置分享链接
-        setupShareLinks(metadata.title);
-        
         // 处理代码高亮
         document.querySelectorAll('pre code').forEach(block => {
             hljs.highlightBlock(block);
@@ -235,16 +232,6 @@ async function loadRelatedPosts(currentSlug) {
         console.error('加载相关文章失败:', error);
         document.querySelector('.related-posts-section').style.display = 'none';
     }
-}
-
-// 设置分享链接
-function setupShareLinks(title) {
-    const pageUrl = encodeURIComponent(window.location.href);
-    const pageTitle = encodeURIComponent(title);
-    
-    document.getElementById('twitter-share').href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
-    document.getElementById('facebook-share').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
-    document.getElementById('linkedin-share').href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
 }
 
 // 设置图片点击预览
