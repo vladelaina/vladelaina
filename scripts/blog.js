@@ -11,9 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // 加载博客文章
     loadBlogPosts();
     
-    // 分类过滤功能
-    setupCategoryFilters();
-    
     // 初始化滚动进度
     initScrollProgress();
 });
@@ -145,7 +142,6 @@ function parseMarkdown(markdown) {
 function createBlogCard(post) {
     const card = document.createElement('div');
     card.className = 'blog-card';
-    card.setAttribute('data-tags', post.tags.join(','));
     
     // 格式化日期
     const dateObj = new Date(post.date);
@@ -173,58 +169,6 @@ function createBlogCard(post) {
     `;
     
     return card;
-}
-
-// 设置分类过滤器
-function setupCategoryFilters() {
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // 移除所有按钮的active类
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // 添加当前按钮的active类
-            this.classList.add('active');
-            
-            // 获取当前分类
-            const category = this.getAttribute('data-category');
-            
-            // 过滤博客文章
-            filterBlogPosts(category);
-        });
-    });
-}
-
-// 过滤博客文章
-function filterBlogPosts(category) {
-    const blogCards = document.querySelectorAll('.blog-card');
-    
-    blogCards.forEach(card => {
-        if (category === 'all') {
-            card.style.display = 'block';
-            setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, 10);
-        } else {
-            const tags = card.getAttribute('data-tags').split(',');
-            
-            if (tags.includes(category)) {
-                card.style.display = 'block';
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 10);
-            } else {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 300);
-            }
-        }
-    });
 }
 
 // 初始化滚动进度
