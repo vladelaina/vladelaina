@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (slug) {
         loadBlogPost(slug);
         loadRelatedPosts(slug);
+        
+        // 设置编辑链接
+        setupEditLink(slug);
     } else {
         showError('没有指定文章');
     }
@@ -41,6 +44,21 @@ function configureMarked() {
         smartypants: false,
         xhtml: false
     });
+}
+
+// 设置编辑链接
+function setupEditLink(slug) {
+    const editLink = document.getElementById('edit-post-link');
+    if (editLink) {
+        // GitHub编辑链接
+        const githubEditUrl = `https://github.com/vladelaina/vladelaina/edit/gh-pages/blogs/${slug}.md`;
+        editLink.href = githubEditUrl;
+        
+        // 添加点击事件，追踪编辑点击
+        editLink.addEventListener('click', function(e) {
+            console.log(`编辑文章: ${slug}`);
+        });
+    }
 }
 
 // 加载博客文章

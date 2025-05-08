@@ -19,6 +19,35 @@
     <link rel="stylesheet" href="styles/blog.css">
 
     <link rel="icon" type="image/png" href="assets/vladelaina.jpg">
+    <style>
+        .edit-post-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #7aa2f7, #f77daa);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .edit-post-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            filter: brightness(1.1);
+        }
+        
+        .post-actions {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+    </style>
 </head>
 <body>
     <div class="scroll-progress-container" id="scrollProgressContainer">
@@ -87,9 +116,14 @@
         <article class="blog-post-container">
             <div class="container">
                 <div class="blog-post-header">
-                    <a href="blog.html" class="back-to-blog" data-i18n="backToBlog">
-                        <i class="fas fa-arrow-left"></i> 返回博客列表
-                    </a>
+                    <div class="post-actions">
+                        <a href="blog.html" class="back-to-blog" data-i18n="backToBlog">
+                            <i class="fas fa-arrow-left"></i> 返回博客列表
+                        </a>
+                        <a href="#" class="edit-post-link" id="edit-post-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-edit"></i> <span data-i18n="editPost">编辑文章</span>
+                        </a>
+                    </div>
                     <h1 id="post-title" class="blog-post-title" data-aos="fade-up"></h1>
                     <div class="blog-post-meta" data-aos="fade-up">
                         <span class="post-date" id="post-date"><i class="far fa-calendar-alt"></i> </span>
