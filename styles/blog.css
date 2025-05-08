@@ -85,11 +85,6 @@
     gap: 0.5rem;
 }
 
-.blog-hero-emoji {
-    font-size: 2.5rem;
-    animation: float 3s ease-in-out infinite;
-}
-
 .blog-hero-subtitle {
     font-size: 1.2rem;
     color: var(--text-muted);
@@ -577,18 +572,12 @@
 }
 
 /* 动画效果 */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
 @keyframes shine {
     0% {
         left: -100px;
+    }
+    20% {
+        left: 100%;
     }
     100% {
         left: 100%;
@@ -599,10 +588,6 @@
 @media (max-width: 768px) {
     .blog-hero-title {
         font-size: 2.5rem;
-    }
-    
-    .blog-hero-emoji {
-        font-size: 2rem;
     }
     
     .blog-post-title {
