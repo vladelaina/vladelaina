@@ -630,9 +630,10 @@ pre:hover .copy-button {
     }
     
     .blog-post-meta {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 0.5rem;
-        align-items: flex-start;
+        align-items: center;
     }
     
     .blog-post-container {
