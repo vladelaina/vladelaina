@@ -1,0 +1,10 @@
+[
+  {
+    "slug": "hello-world",
+    "title": "我的第一篇博客",
+    "date": "2024-06-19",
+    "description": "这是我的第一篇博客文章，介绍了我的个人网站",
+    "thumbnail": "https://placekitten.com/500/300",
+    "tags": ["个人", "网站", "开发"]
+  }
+] 

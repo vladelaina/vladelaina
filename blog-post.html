@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="vladelaina - 博客文章">
+    <title id="blog-title">vladelaina - 博客文章</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/blog.css">
+
+    <link rel="icon" type="image/png" href="assets/vladelaina.jpg">
+</head>
+<body>
+    <div class="scroll-progress-container" id="scrollProgressContainer">
+        <div class="scroll-progress-glow"></div>
+        <div class="scroll-progress-particles">
+            <span class="particle p1"></span>
+            <span class="particle p2"></span>
+            <span class="particle p3"></span>
+            <span class="particle p4"></span>
+            <span class="particle p5"></span>
+            <span class="particle p6"></span>
+            <span class="particle p7"></span>
+            <span class="particle p8"></span>
+        </div>
+        <svg class="scroll-progress-circle" viewBox="0 0 100 100">
+            <defs>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#7aa2f7" />
+                    <stop offset="50%" stop-color="#9aaee8" />
+                    <stop offset="100%" stop-color="#f77daa" />
+                </linearGradient>
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+            </defs>
+            <circle class="scroll-progress-circle-bg" cx="50" cy="50" r="45"></circle>
+            <circle class="scroll-progress-circle-fill" cx="50" cy="50" r="45"></circle>
+            <circle class="scroll-progress-circle-inner" cx="50" cy="50" r="35"></circle>
+            <path class="scroll-progress-circle-deco" d="M50,15 A35,35 0 0,1 85,50 A35,35 0 0,1 50,85 A35,35 0 0,1 15,50 A35,35 0 0,1 50,15 Z" />
+        </svg>
+        <div class="scroll-progress-icon">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+        <div class="scroll-progress-emoji-container">
+            <span class="emoji emoji-rocket">🚀</span>
+            <span class="emoji emoji-star">⭐</span>
+            <span class="emoji emoji-heart">💖</span>
+            <span class="emoji emoji-sparkles">✨</span>
+        </div>
+        <div class="scroll-progress-stars">
+            <span class="star star-1">✦</span>
+            <span class="star star-2">✧</span>
+            <span class="star star-3">✦</span>
+            <span class="star star-4">✧</span>
+            <span class="star star-5">✦</span>
+            <span class="star star-6">✧</span>
+        </div>
+        <div class="scroll-progress-percentage">0%</div>
+        <div class="scroll-progress-tooltip" data-i18n="backToTop">返回顶部</div>
+    </div>
+
+    <header class="blog-header">
+        <div class="container">
+            <nav class="blog-nav">
+                <a href="index.html" class="blog-nav-logo">vladelaina</a>
+                <ul class="blog-nav-links">
+                    <li><a href="index.html" data-i18n="homeLink">首页</a></li>
+                    <li><a href="blog.html" data-i18n="blogLink">博客</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="blog-post-container">
+            <div class="container">
+                <div class="blog-post-header">
+                    <a href="blog.html" class="back-to-blog" data-i18n="backToBlog">
+                        <i class="fas fa-arrow-left"></i> 返回博客列表
+                    </a>
+                    <h1 id="post-title" class="blog-post-title" data-aos="fade-up"></h1>
+                    <div class="blog-post-meta" data-aos="fade-up">
+                        <span class="post-date" id="post-date"><i class="far fa-calendar-alt"></i> </span>
+                        <div class="post-tags" id="post-tags"></div>
+                    </div>
+                </div>
+                
+                <div class="blog-post-content" id="blog-post-content" data-aos="fade-up" data-aos-delay="100">
+                    <!-- 博客内容将通过JavaScript动态加载 -->
+                </div>
+                
+                <div class="blog-post-footer" data-aos="fade-up">
+                    <div class="share-post">
+                        <span data-i18n="sharePost">分享这篇文章：</span>
+                        <a href="#" class="share-link twitter" id="twitter-share" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="share-link facebook" id="facebook-share" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="share-link linkedin" id="linkedin-share" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <section class="related-posts-section">
+            <div class="container">
+                <h2 data-i18n="relatedPosts">相关文章</h2>
+                <div class="related-posts-container" id="related-posts-container">
+                    <!-- 相关文章将通过JavaScript动态加载 -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p data-i18n="copyright">&copy; 2024 vladelaina. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="scripts/i18n.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/blog-post.js"></script>
+</body>
+</html> 
