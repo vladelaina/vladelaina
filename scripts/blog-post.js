@@ -38,6 +38,21 @@ function configureMarked() {
         return link;
     };
     
+    // 自定义图片渲染逻辑，处理相对路径
+    renderer.image = function(href, title, text) {
+        // 处理相对路径图片
+        if (href.startsWith('./Images/') || href.startsWith('Images/')) {
+            // 移除开头的./
+            const imagePath = href.replace(/^\.\//, '');
+            // 将空格替换为%20
+            const encodedPath = imagePath.replace(/ /g, '%20');
+            // 构建GitHub raw内容URL
+            href = `https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/${encodedPath}`;
+        }
+        
+        return `<img src="${href}" alt="${text || ''}" ${title ? `title="${title}"` : ''}>`;
+    };
+    
     // 设置可选项
     marked.setOptions({
         renderer: renderer,
