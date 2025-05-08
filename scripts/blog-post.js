@@ -349,32 +349,55 @@ function openImageModal(src, alt) {
         </div>
     `;
     
+    // 记住当前滚动位置
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // 计算滚动条宽度
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    
     // 添加到页面
     document.body.appendChild(modal);
     
-    // 存储当前滚动位置
-    const scrollY = window.scrollY;
-    
-    // 阻止滚动但保持视觉位置
-    document.body.style.position = 'fixed';
-    document.body.style.width = '100%';
-    document.body.style.top = `-${scrollY}px`;
+    // 禁用滚动，但不改变位置
+    document.body.style.overflow = 'hidden';
+    document.body.style.paddingRight = scrollbarWidth + 'px'; // 防止页面抖动
     
     // 显示模态框
-    setTimeout(() => {
+    requestAnimationFrame(() => {
         modal.style.opacity = '1';
-    }, 10);
-    
-    // 关闭模态框
-    const closeButton = modal.querySelector('.image-modal-close');
-    closeButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        closeImageModal(modal, scrollY);
     });
     
+    // 关闭模态框的函数
+    function closeModalWithoutAnimation() {
+        modal.style.opacity = '0';
+        
+        // 设置标记，表示正在关闭模态框
+        modal.dataset.closing = 'true';
+        
+        // 延迟清理
+        setTimeout(() => {
+            // 恢复滚动
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = ''; // 移除额外的内边距
+            
+            // 移除模态框
+            if (document.body.contains(modal)) {
+                document.body.removeChild(modal);
+            }
+        }, 300);
+    }
+    
+    // 关闭按钮点击事件
+    const closeButton = modal.querySelector('.image-modal-close');
+    closeButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeModalWithoutAnimation();
+    });
+    
+    // 点击背景关闭
     modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeImageModal(modal, scrollY);
+        if (e.target === modal && !modal.dataset.closing) {
+            closeModalWithoutAnimation();
         }
     });
     
@@ -384,29 +407,14 @@ function openImageModal(src, alt) {
         e.stopPropagation();
     });
     
-    // 添加ESC键关闭功能
-    const escHandler = function(e) {
-        if (e.key === 'Escape') {
-            closeImageModal(modal, scrollY);
+    // ESC键关闭
+    function escHandler(e) {
+        if (e.key === 'Escape' && !modal.dataset.closing) {
+            closeModalWithoutAnimation();
             document.removeEventListener('keydown', escHandler);
         }
-    };
+    }
     document.addEventListener('keydown', escHandler);
-}
-
-function closeImageModal(modal, scrollY) {
-    modal.style.opacity = '0';
-    
-    setTimeout(() => {
-        // 恢复滚动
-        document.body.style.position = '';
-        document.body.style.width = '';
-        document.body.style.top = '';
-        window.scrollTo(0, scrollY);
-        
-        // 移除模态框
-        document.body.removeChild(modal);
-    }, 300);
 }
 
 // 显示错误信息
