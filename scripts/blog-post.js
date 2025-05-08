@@ -46,8 +46,9 @@ function configureMarked() {
 // 加载博客文章
 async function loadBlogPost(slug) {
     try {
-        // 获取文章内容
-        const response = await fetch(`/blogs/${slug}.md`);
+        // 从GitHub获取文章内容
+        const githubUrl = `https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/${slug}.md`;
+        const response = await fetch(githubUrl);
         if (!response.ok) {
             throw new Error('文章不存在');
         }
@@ -98,8 +99,9 @@ async function loadBlogPost(slug) {
 
 // 解析Markdown文件，分离元数据和内容
 function parseMarkdown(markdown) {
-    // 检查是否有YAML前置元数据
-    const matches = markdown.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
+    // 检查是否有HTML注释形式的元数据
+    const commentRegex = /<!--\s*([\s\S]*?)\s*-->\s*([\s\S]*)/;
+    const matches = markdown.match(commentRegex);
     
     if (!matches) {
         // 如果没有元数据块，就直接返回内容
@@ -113,17 +115,17 @@ function parseMarkdown(markdown) {
         };
     }
     
-    const yamlText = matches[1];
+    const metadataText = matches[1];
     const content = matches[2];
     
-    // 简单解析YAML
+    // 解析元数据
     const metadata = {};
-    yamlText.split('\n').forEach(line => {
+    metadataText.split('\n').forEach(line => {
         if (line.trim() && line.includes(':')) {
             const [key, ...valueParts] = line.split(':');
             let value = valueParts.join(':').trim();
             
-            // 处理数组
+            // 处理数组格式 [item1, item2]
             if (value.startsWith('[') && value.endsWith(']')) {
                 value = value.slice(1, -1)
                     .split(',')
@@ -142,58 +144,75 @@ async function loadRelatedPosts(currentSlug) {
     try {
         const container = document.getElementById('related-posts-container');
         
-        // 获取所有博客文章
-        const response = await fetch('/blogs/index.json');
-        let allPosts = [];
+        // 从GitHub获取索引文件
+        const indexUrl = 'https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/index.md';
+        const response = await fetch(indexUrl);
+        let indexContent = '';
         
         if (response.ok) {
-            allPosts = await response.json();
-        } else {
-            // 模拟数据
-            allPosts = [
-                {
-                    slug: 'hello-world',
-                    title: '我的第一篇博客',
-                    date: '2024-06-19',
-                    thumbnail: 'https://placekitten.com/500/300',
-                    tags: ['个人', '网站', '开发']
+            indexContent = await response.text();
+            
+            // 简单处理索引文件，获取所有文章列表
+            const blogList = indexContent.split('\n')
+                .filter(line => line.trim())
+                .map(line => {
+                    // 从格式 "1. Git" 中提取出 "Git"
+                    const match = line.match(/\d+\.\s+(.*)/);
+                    return match ? match[1].trim() : null;
+                })
+                .filter(slug => slug && slug !== currentSlug);
+            
+            // 如果没有其他文章，隐藏相关文章区域
+            if (blogList.length === 0) {
+                document.querySelector('.related-posts-section').style.display = 'none';
+                return;
+            }
+            
+            // 随机选择最多3篇相关文章
+            const relatedSlugs = blogList
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 3);
+            
+            // 清空容器
+            container.innerHTML = '';
+            
+            // 为每个相关文章创建一个卡片
+            for (const slug of relatedSlugs) {
+                try {
+                    // 获取文章信息
+                    const postUrl = `https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/${slug}.md`;
+                    const postResponse = await fetch(postUrl);
+                    
+                    if (postResponse.ok) {
+                        const postContent = await postResponse.text();
+                        const { metadata } = parseMarkdown(postContent);
+                        
+                        // 创建相关文章卡片
+                        const postCard = document.createElement('div');
+                        postCard.className = 'related-post-card';
+                        
+                        postCard.innerHTML = `
+                            <img src="${metadata.thumbnail || 'assets/blog-default.jpg'}" alt="${metadata.title}" class="related-post-image">
+                            <div class="related-post-content">
+                                <h3 class="related-post-title"><a href="blog-post.html?slug=${slug}">${metadata.title}</a></h3>
+                                <span class="related-post-date"><i class="far fa-calendar-alt"></i> ${formatDate(metadata.date)}</span>
+                            </div>
+                        `;
+                        
+                        container.appendChild(postCard);
+                    }
+                } catch (error) {
+                    console.error(`获取相关文章 ${slug} 失败:`, error);
                 }
-                // 可以添加更多示例博客
-            ];
-        }
-        
-        // 排除当前文章
-        const otherPosts = allPosts.filter(post => post.slug !== currentSlug);
-        
-        // 如果没有其他文章，隐藏相关文章区域
-        if (otherPosts.length === 0) {
+            }
+            
+            // 如果没有成功加载任何相关文章，隐藏区域
+            if (container.children.length === 0) {
+                document.querySelector('.related-posts-section').style.display = 'none';
+            }
+        } else {
             document.querySelector('.related-posts-section').style.display = 'none';
-            return;
         }
-        
-        // 随机选择最多3篇相关文章
-        const relatedPosts = otherPosts
-            .sort(() => 0.5 - Math.random())
-            .slice(0, 3);
-        
-        // 清空容器
-        container.innerHTML = '';
-        
-        // 渲染相关文章
-        relatedPosts.forEach(post => {
-            const postCard = document.createElement('div');
-            postCard.className = 'related-post-card';
-            
-            postCard.innerHTML = `
-                <img src="${post.thumbnail || 'assets/blog-default.jpg'}" alt="${post.title}" class="related-post-image">
-                <div class="related-post-content">
-                    <h3 class="related-post-title"><a href="blog-post.html?slug=${post.slug}">${post.title}</a></h3>
-                    <span class="related-post-date"><i class="far fa-calendar-alt"></i> ${formatDate(post.date)}</span>
-                </div>
-            `;
-            
-            container.appendChild(postCard);
-        });
     } catch (error) {
         console.error('加载相关文章失败:', error);
         document.querySelector('.related-posts-section').style.display = 'none';
@@ -248,9 +267,7 @@ function openImageModal(src, alt) {
     
     // 关闭模态框
     const closeButton = modal.querySelector('.image-modal-close');
-    closeButton.addEventListener('click', () => {
-        closeImageModal(modal);
-    });
+    closeButton.addEventListener('click', () => closeImageModal(modal));
     
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
@@ -259,7 +276,6 @@ function openImageModal(src, alt) {
     });
 }
 
-// 关闭图片预览模态框
 function closeImageModal(modal) {
     modal.style.opacity = '0';
     
@@ -272,27 +288,28 @@ function closeImageModal(modal) {
 // 显示错误信息
 function showError(message) {
     const container = document.getElementById('blog-post-content');
-    container.innerHTML = `<div class="error-message"><p>${message}</p></div>`;
-    
-    // 隐藏相关文章
-    document.querySelector('.related-posts-section').style.display = 'none';
+    container.innerHTML = `
+        <div class="error-message">
+            <p><i class="fas fa-exclamation-circle"></i> ${message}</p>
+        </div>
+    `;
 }
 
-// 从URL中获取参数
+// 获取URL参数
 function getUrlParameter(name) {
-    const url = window.location.search;
-    const urlParams = new URLSearchParams(url);
+    const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(name);
 }
 
 // 格式化日期
 function formatDate(dateString) {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    
-    return `${year}-${month}-${day}`;
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    try {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('zh-CN', options);
+    } catch {
+        return dateString;
+    }
 }
 
 // 初始化滚动进度

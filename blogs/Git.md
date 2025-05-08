@@ -1,11 +1,8 @@
-
-
-
-
 <!--
 title: Git
 date: 2025-05-08
 description: 提交关键字和一些基本的说明
+thumbnail:https://raw.githubusercontent.com/vladelaina/Catime/refs/heads/main/Images/catime.png
 tags: [Git]
 -->
 

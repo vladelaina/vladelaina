@@ -23,34 +23,68 @@ async function loadBlogPosts() {
     try {
         const postContainer = document.getElementById('blogPostsContainer');
         
-        // 获取所有Markdown文件
-        const response = await fetch('/blogs/index.json');
-        let blogPosts = [];
+        // 从GitHub获取索引文件
+        const indexUrl = 'https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/index.md';
+        const response = await fetch(indexUrl);
         
-        if (response.ok) {
-            blogPosts = await response.json();
-        } else {
-            // 如果没有index.json，模拟一些数据用于演示
-            blogPosts = [
-                {
-                    slug: 'hello-world',
-                    title: '我的第一篇博客',
-                    date: '2024-06-19',
-                    description: '这是我的第一篇博客文章，介绍了我的个人网站',
-                    thumbnail: 'https://placekitten.com/500/300',
-                    tags: ['个人', '网站', '开发']
-                },
-                // 可以添加更多示例博客
-            ];
+        if (!response.ok) {
+            throw new Error('无法获取博客索引');
+        }
+        
+        const indexContent = await response.text();
+        
+        // 解析索引文件获取博客列表
+        const blogSlugs = indexContent.split('\n')
+            .filter(line => line.trim())
+            .map(line => {
+                // 从格式 "1. Git" 中提取出 "Git"
+                const match = line.match(/\d+\.\s+(.*)/);
+                return match ? match[1].trim() : null;
+            })
+            .filter(slug => slug);
+        
+        // 清空容器
+        postContainer.innerHTML = '';
+        
+        // 如果没有博客文章
+        if (blogSlugs.length === 0) {
+            postContainer.innerHTML = '<div class="no-posts"><p>暂无博客文章</p></div>';
+            return;
+        }
+        
+        // 存储所有博客文章的数据
+        const blogPosts = [];
+        
+        // 获取每篇博客的详细信息
+        for (const slug of blogSlugs) {
+            try {
+                // 获取文章内容
+                const postUrl = `https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/${slug}.md`;
+                const postResponse = await fetch(postUrl);
+                
+                if (postResponse.ok) {
+                    const postContent = await postResponse.text();
+                    const { metadata } = parseMarkdown(postContent);
+                    
+                    // 添加到博客列表
+                    blogPosts.push({
+                        slug: slug,
+                        title: metadata.title || slug,
+                        date: metadata.date || new Date().toISOString().split('T')[0],
+                        description: metadata.description || '暂无描述',
+                        thumbnail: metadata.thumbnail || '',
+                        tags: metadata.tags || []
+                    });
+                }
+            } catch (error) {
+                console.error(`获取博客 ${slug} 失败:`, error);
+            }
         }
         
         // 按日期排序
         blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
         
-        // 清空容器
-        postContainer.innerHTML = '';
-        
-        // 渲染博客文章卡片
+        // 渲染博客卡片
         if (blogPosts.length > 0) {
             blogPosts.forEach(post => {
                 postContainer.appendChild(createBlogCard(post));
@@ -63,6 +97,48 @@ async function loadBlogPosts() {
         document.getElementById('blogPostsContainer').innerHTML = 
             '<div class="error-message"><p>加载文章失败，请稍后再试</p></div>';
     }
+}
+
+// 解析Markdown文件，分离元数据和内容
+function parseMarkdown(markdown) {
+    // 检查是否有HTML注释形式的元数据
+    const commentRegex = /<!--\s*([\s\S]*?)\s*-->\s*([\s\S]*)/;
+    const matches = markdown.match(commentRegex);
+    
+    if (!matches) {
+        // 如果没有元数据块，就直接返回内容
+        return {
+            metadata: {
+                title: '未命名文章',
+                date: new Date().toISOString().split('T')[0],
+                tags: []
+            },
+            content: markdown
+        };
+    }
+    
+    const metadataText = matches[1];
+    const content = matches[2];
+    
+    // 解析元数据
+    const metadata = {};
+    metadataText.split('\n').forEach(line => {
+        if (line.trim() && line.includes(':')) {
+            const [key, ...valueParts] = line.split(':');
+            let value = valueParts.join(':').trim();
+            
+            // 处理数组格式 [item1, item2]
+            if (value.startsWith('[') && value.endsWith(']')) {
+                value = value.slice(1, -1)
+                    .split(',')
+                    .map(item => item.trim().replace(/'/g, '').replace(/"/g, ''));
+            }
+            
+            metadata[key.trim()] = value;
+        }
+    });
+    
+    return { metadata, content };
 }
 
 // 创建博客卡片
