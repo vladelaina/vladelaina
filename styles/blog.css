@@ -122,9 +122,10 @@
 .blog-card-image {
     height: 200px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     border-bottom: 1px solid rgba(var(--border-rgb), 0.15);
     transition: transform 0.3s ease;
+    background-color: rgba(var(--background-alt-rgb), 0.8);
 }
 
 .blog-card-image-link {
@@ -310,6 +311,8 @@
     border-radius: 10px;
     margin: 1.5rem 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
+    background-color: rgba(var(--background-alt-rgb), 0.5);
 }
 
 .blog-post-content h1, 
@@ -539,8 +542,9 @@ pre:hover .copy-button {
 .related-post-image {
     height: 160px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
+    background-color: rgba(var(--background-alt-rgb), 0.5);
 }
 
 .related-post-image-link {
