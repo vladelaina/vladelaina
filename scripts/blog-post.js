@@ -352,8 +352,13 @@ function openImageModal(src, alt) {
     // 添加到页面
     document.body.appendChild(modal);
     
-    // 阻止滚动
-    document.body.style.overflow = 'hidden';
+    // 存储当前滚动位置
+    const scrollY = window.scrollY;
+    
+    // 阻止滚动但保持视觉位置
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+    document.body.style.top = `-${scrollY}px`;
     
     // 显示模态框
     setTimeout(() => {
@@ -362,21 +367,45 @@ function openImageModal(src, alt) {
     
     // 关闭模态框
     const closeButton = modal.querySelector('.image-modal-close');
-    closeButton.addEventListener('click', () => closeImageModal(modal));
+    closeButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeImageModal(modal, scrollY);
+    });
     
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
-            closeImageModal(modal);
+            closeImageModal(modal, scrollY);
         }
     });
+    
+    // 阻止模态框内图片点击冒泡
+    const modalImg = modal.querySelector('img');
+    modalImg.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+    
+    // 添加ESC键关闭功能
+    const escHandler = function(e) {
+        if (e.key === 'Escape') {
+            closeImageModal(modal, scrollY);
+            document.removeEventListener('keydown', escHandler);
+        }
+    };
+    document.addEventListener('keydown', escHandler);
 }
 
-function closeImageModal(modal) {
+function closeImageModal(modal, scrollY) {
     modal.style.opacity = '0';
     
     setTimeout(() => {
+        // 恢复滚动
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.top = '';
+        window.scrollTo(0, scrollY);
+        
+        // 移除模态框
         document.body.removeChild(modal);
-        document.body.style.overflow = '';
     }, 300);
 }
 
