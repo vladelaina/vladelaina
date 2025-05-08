@@ -6,7 +6,7 @@ thumbnail:https://raw.githubusercontent.com/vladelaina/vladelaina/refs/heads/gh-
 tags: [Git]
 -->
 
-## ✅ Git 提交关键字大全（含表情）
+## ✅ Git 提交关键字大全
 
 | 关键字      | 表情 | 含义                                                |
 | ----------- | ---- | --------------------------------------------------- |
