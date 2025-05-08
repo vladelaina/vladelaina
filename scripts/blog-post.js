@@ -29,9 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 配置Marked解析器
 function configureMarked() {
+    // 创建自定义渲染器
+    const renderer = new marked.Renderer();
+    
+    // 自定义链接渲染逻辑，添加target="_blank"属性使链接在新窗口打开
+    renderer.link = function(href, title, text) {
+        const link = `<a href="${href}" target="_blank" rel="noopener noreferrer"${title ? ` title="${title}"` : ''}>${text}</a>`;
+        return link;
+    };
+    
     // 设置可选项
     marked.setOptions({
-        renderer: new marked.Renderer(),
+        renderer: renderer,
         highlight: function(code, language) {
             const validLanguage = hljs.getLanguage(language) ? language : 'plaintext';
             return hljs.highlight(validLanguage, code).value;
