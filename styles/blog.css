@@ -111,10 +111,11 @@
     transition: all 0.3s ease;
     border: 1px solid rgba(var(--border-rgb), 0.15);
     position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .blog-card:hover {
-    transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(var(--primary-rgb), 0.15);
     border-color: rgba(var(--primary-rgb), 0.3);
 }
@@ -126,12 +127,14 @@
     border-bottom: 1px solid rgba(var(--border-rgb), 0.15);
     transition: transform 0.3s ease;
     background-color: rgba(var(--background-alt-rgb), 0.8);
+    transform-style: preserve-3d;
 }
 
 .blog-card-image-link {
     display: block;
     overflow: hidden;
     position: relative;
+    transform-style: preserve-3d;
 }
 
 .blog-card-image-link::after {
@@ -141,18 +144,18 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.3));
+    background: none;
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .blog-card-image-link:hover::after {
-    opacity: 1;
+    opacity: 0;
 }
 
 .blog-card-image-link:hover .blog-card-image {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
+    transform: none;
 }
 
 .blog-card-content {
@@ -531,10 +534,11 @@ pre:hover .copy-button {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     border: 1px solid rgba(var(--border-rgb), 0.1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 .related-post-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(var(--primary-rgb), 0.1);
     border-color: rgba(var(--primary-rgb), 0.2);
 }
@@ -545,12 +549,14 @@ pre:hover .copy-button {
     object-fit: contain;
     transition: transform 0.3s ease;
     background-color: rgba(var(--background-alt-rgb), 0.5);
+    transform-style: preserve-3d;
 }
 
 .related-post-image-link {
     display: block;
     overflow: hidden;
     position: relative;
+    transform-style: preserve-3d;
 }
 
 .related-post-image-link::after {
@@ -560,17 +566,18 @@ pre:hover .copy-button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.3));
+    background: none;
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .related-post-image-link:hover::after {
-    opacity: 1;
+    opacity: 0;
 }
 
 .related-post-image-link:hover .related-post-image {
-    transform: scale(1.05);
+    transform: none;
 }
 
 .related-post-content {
@@ -651,4 +658,11 @@ pre:hover .copy-button {
         flex-direction: column;
         align-items: flex-start;
     }
+}
+
+/* 添加3D倾斜效果的JS相关样式 */
+.tilt-effect {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: transform 0.1s ease;
 } 
