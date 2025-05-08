@@ -50,7 +50,10 @@ function configureMarked() {
             href = `https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/${encodedPath}`;
         }
         
-        return `<img src="${href}" alt="${text || ''}" ${title ? `title="${title}"` : ''}>`;
+        const alt = text || '';
+        const titleAttr = title ? ` title="${title}"` : '';
+        
+        return `<img src="${href}" alt="${alt}"${titleAttr}>`;
     };
     
     // 设置可选项
@@ -68,6 +71,28 @@ function configureMarked() {
         smartypants: false,
         xhtml: false
     });
+    
+    // 添加图片路径处理钩子
+    const originalParse = marked.parse;
+    marked.parse = function(markdown, options) {
+        // 先进行常规渲染
+        let html = originalParse.call(this, markdown, options);
+        
+        // 使用正则表达式查找包含相对路径的图片标签
+        const imgRegex = /<img\s+src="(\.\/Images\/[^"]+)"\s*([^>]*)>/g;
+        
+        // 替换找到的图片路径
+        html = html.replace(imgRegex, function(match, src, attributes) {
+            // 处理路径
+            const imagePath = src.replace(/^\.\//, '');
+            const encodedPath = imagePath.replace(/ /g, '%20');
+            const newSrc = `https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/${encodedPath}`;
+            
+            return `<img src="${newSrc}" ${attributes}>`;
+        });
+        
+        return html;
+    };
 }
 
 // 设置编辑链接
