@@ -1,3 +1,11 @@
+<!--
+title: Windows 开发环境设置
+date: 2025-05-08
+description: vladelaina的Windows开发环境设置和常用软件推荐
+thumbnail:https://raw.githubusercontent.com/vladelaina/Catime/refs/heads/main/Images/catime.png
+tags: [开发环境, Windows, 软件推荐]
+-->
+
 # 这里是vladelaina的windows设置
 
 ## software
