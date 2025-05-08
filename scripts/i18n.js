@@ -7,7 +7,7 @@ const translations = {
         'languageZH': '中文',
         
         // 标题
-        'pageTitle': 'vladelaina - 个人主页',
+        'pageTitle': 'vladelaina',
         
         // 英雄区域
         'heroSubtitle': '信仰开源之道，崇尚 Arch 之美，沉溺二次元世界',

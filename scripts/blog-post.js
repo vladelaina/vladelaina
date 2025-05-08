@@ -86,8 +86,8 @@ async function loadBlogPost(slug) {
         const { metadata, content } = parseMarkdown(markdownContent);
         
         // 设置页面标题
-        document.title = `${metadata.title} - vladelaina博客`;
-        document.getElementById('blog-title').textContent = `${metadata.title} - vladelaina博客`;
+        document.title = `${metadata.title} - vladelaina`;
+        document.getElementById('blog-title').textContent = `${metadata.title} - vladelaina`;
         
         // 渲染文章标题和元数据
         document.getElementById('post-title').textContent = metadata.title;
