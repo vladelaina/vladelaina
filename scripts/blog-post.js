@@ -349,20 +349,10 @@ function openImageModal(src, alt) {
         </div>
     `;
     
-    // 记住当前滚动位置
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    // 计算滚动条宽度
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    
     // 添加到页面
     document.body.appendChild(modal);
     
-    // 禁用滚动，但不改变位置
-    document.body.style.overflow = 'hidden';
-    document.body.style.paddingRight = scrollbarWidth + 'px'; // 防止页面抖动
-    
-    // 显示模态框
+    // 显示模态框，但不阻止页面滚动
     requestAnimationFrame(() => {
         modal.style.opacity = '1';
     });
@@ -376,10 +366,6 @@ function openImageModal(src, alt) {
         
         // 延迟清理
         setTimeout(() => {
-            // 恢复滚动
-            document.body.style.overflow = '';
-            document.body.style.paddingRight = ''; // 移除额外的内边距
-            
             // 移除模态框
             if (document.body.contains(modal)) {
                 document.body.removeChild(modal);
