@@ -207,7 +207,9 @@ async function loadRelatedPosts(currentSlug) {
                         postCard.className = 'related-post-card';
                         
                         postCard.innerHTML = `
-                            <img src="${metadata.thumbnail || 'assets/blog-default.jpg'}" alt="${metadata.title}" class="related-post-image">
+                            <a href="blog-post.html?slug=${slug}" class="related-post-image-link">
+                                <img src="${metadata.thumbnail || 'assets/blog-default.jpg'}" alt="${metadata.title}" class="related-post-image">
+                            </a>
                             <div class="related-post-content">
                                 <h3 class="related-post-title"><a href="blog-post.html?slug=${slug}">${metadata.title}</a></h3>
                                 <span class="related-post-date"><i class="far fa-calendar-alt"></i> ${formatDate(metadata.date)}</span>

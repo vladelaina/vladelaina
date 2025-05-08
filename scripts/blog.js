@@ -154,7 +154,9 @@ function createBlogCard(post) {
     // 创建博客卡片HTML
     card.innerHTML = `
         <div class="shine-effect"></div>
-        <img src="${post.thumbnail || 'assets/blog-default.jpg'}" alt="${post.title}" class="blog-card-image">
+        <a href="blog-post.html?slug=${post.slug}" class="blog-card-image-link">
+            <img src="${post.thumbnail || 'assets/blog-default.jpg'}" alt="${post.title}" class="blog-card-image">
+        </a>
         <div class="blog-card-content">
             <h3 class="blog-card-title"><a href="blog-post.html?slug=${post.slug}">${post.title}</a></h3>
             <div class="blog-card-meta">
