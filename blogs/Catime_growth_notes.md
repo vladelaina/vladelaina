@@ -1,7 +1,7 @@
 <!--
 title: Catime 成长笔记：从 0 到 1800 Star 的90天
 date: 2025-05-09
-description: 将毫无保留的分享并探讨了初期产品如何在快速变化的环境中找到突破口
+description: 【从0到1800Star】90天，我用0领真维广了一个C语言项目
 thumbnail:https://raw.githubusercontent.com/vladelaina/vladelaina/refs/heads/gh-pages/blogs/Images/catime.webp
 tags: [Catime]
 -->
@@ -10,7 +10,7 @@ tags: [Catime]
 
 
 
-[Catime](https://github.com/vladelaina/Catime)是如何在大约90天内从0做到1800k star的呢？其中最主要的原因并不是它好用，也不仅仅是用纯C编写那么简单。更重要的原因是推广策略！🎯但最棒的部分是，这些推广手段其实不需要花一分钱💡。
+[Catime](https://github.com/vladelaina/Catime)是如何在大约90天内从0做到1800+ star的呢？其中最主要的原因并不是它好用，也不仅仅是用纯C编写那么简单。更重要的原因是推广策略！🎯但最棒的部分是，这些推广手段其实不需要花一分钱💡。
 
 我曾经尝试过在B站购买“必火”，花了大约20多块钱，结果带来了一些视频浏览量和几个点赞...真的，只有几个 😅，其他的效果几乎为零。那时候我就意识到，推广其实可以通过更聪明的方式，而不一定需要花大钱。
 
