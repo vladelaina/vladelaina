@@ -1,7 +1,7 @@
 <!--
 title: Catime 成长笔记：从 0 到 1800 Star 的90天
 date: 2025-05-09
-description: 【从0到1800Star】90天，我用0领真维广了一个C语言项目
+description: 将毫无保留的分享并探讨了初期产品如何在快速变化的环境中找到突破口
 thumbnail:https://raw.githubusercontent.com/vladelaina/vladelaina/refs/heads/gh-pages/blogs/Images/catime.webp
 tags: [Catime]
 -->
