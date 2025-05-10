@@ -46,8 +46,8 @@ function configureMarked() {
             const imagePath = href.replace(/^\.\//, '');
             // 将空格替换为%20
             const encodedPath = imagePath.replace(/ /g, '%20');
-            // 构建GitHub raw内容URL
-            href = `https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/${encodedPath}`;
+            // 构建本地图片URL
+            href = `blogs/${encodedPath}`;
         }
         
         const alt = text || '';
@@ -86,7 +86,7 @@ function configureMarked() {
             // 处理路径
             const imagePath = src.replace(/^\.\//, '');
             const encodedPath = imagePath.replace(/ /g, '%20');
-            const newSrc = `https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/${encodedPath}`;
+            const newSrc = `blogs/${encodedPath}`;
             
             return `<img src="${newSrc}" ${attributes}>`;
         });
@@ -113,17 +113,23 @@ function setupEditLink(slug) {
 // 加载博客文章
 async function loadBlogPost(slug) {
     try {
-        // 从GitHub获取文章内容
-        const githubUrl = `https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/${slug}.md`;
-        const response = await fetch(githubUrl);
+        // 从本地获取文章内容
+        const localUrl = `blogs/${slug}.md`;
+        console.log('尝试获取文章:', localUrl);
+        
+        const response = await fetch(localUrl);
         if (!response.ok) {
+            console.error('文章请求失败，状态码:', response.status);
             throw new Error('文章不存在');
         }
         
         const markdownContent = await response.text();
+        console.log('文章内容前100个字符:', markdownContent.substring(0, 100));
         
         // 解析文章元数据和内容
         const { metadata, content } = parseMarkdown(markdownContent);
+        console.log('解析出的元数据:', metadata);
+        console.log('内容前100个字符:', content.substring(0, 100));
         
         // 设置页面标题
         document.title = `${metadata.title} - vladelaina`;
@@ -247,80 +253,94 @@ async function loadRelatedPosts(currentSlug) {
     try {
         const container = document.getElementById('related-posts-container');
         
-        // 从GitHub获取索引文件
-        const indexUrl = 'https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/index.md';
+        // 从本地获取索引文件
+        const indexUrl = 'blogs/index.md';
         const response = await fetch(indexUrl);
-        let indexContent = '';
         
-        if (response.ok) {
-            indexContent = await response.text();
+        if (!response.ok) {
+            throw new Error('无法获取博客索引');
+        }
+        
+        const indexContent = await response.text();
+        
+        // 解析索引文件获取博客列表
+        const blogSlugs = indexContent.split('\n')
+            .filter(line => line.trim())
+            .map(line => {
+                // 从格式 "1. Git" 中提取出 "Git"
+                const match = line.match(/\d+\.\s+(.*)/);
+                return match ? match[1].trim() : null;
+            })
+            .filter(slug => slug)
+            .filter(slug => slug !== currentSlug);  // 排除当前文章
             
-            // 简单处理索引文件，获取所有文章列表
-            const blogList = indexContent.split('\n')
-                .filter(line => line.trim())
-                .map(line => {
-                    // 从格式 "1. Git" 中提取出 "Git"
-                    const match = line.match(/\d+\.\s+(.*)/);
-                    return match ? match[1].trim() : null;
-                })
-                .filter(slug => slug && slug !== currentSlug);
-            
-            // 如果没有其他文章，隐藏相关文章区域
-            if (blogList.length === 0) {
-                document.querySelector('.related-posts-section').style.display = 'none';
-                return;
-            }
-            
-            // 随机选择最多3篇相关文章
-            const relatedSlugs = blogList
-                .sort(() => 0.5 - Math.random())
-                .slice(0, 3);
-            
-            // 清空容器
-            container.innerHTML = '';
-            
-            // 为每个相关文章创建一个卡片
-            for (const slug of relatedSlugs) {
-                try {
-                    // 获取文章信息
-                    const postUrl = `https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/${slug}.md`;
-                    const postResponse = await fetch(postUrl);
+        // 如果没有相关文章
+        if (blogSlugs.length === 0) {
+            container.innerHTML = '<p data-i18n="noRelatedPosts">暂无相关文章</p>';
+            return;
+        }
+        
+        // 存储所有相关文章的数据
+        const relatedPosts = [];
+        
+        // 获取每篇博客的详细信息（最多3篇）
+        for (const slug of blogSlugs.slice(0, 3)) {
+            try {
+                // 获取文章内容
+                const postUrl = `blogs/${slug}.md`;
+                const postResponse = await fetch(postUrl);
+                
+                if (postResponse.ok) {
+                    const postContent = await postResponse.text();
+                    const { metadata } = parseMarkdown(postContent);
                     
-                    if (postResponse.ok) {
-                        const postContent = await postResponse.text();
-                        const { metadata } = parseMarkdown(postContent);
-                        
-                        // 创建相关文章卡片
-                        const postCard = document.createElement('div');
-                        postCard.className = 'related-post-card';
-                        
-                        postCard.innerHTML = `
-                            <a href="blog-post.html?slug=${slug}" class="related-post-image-link">
-                                <img src="${metadata.thumbnail || 'assets/blog-default.jpg'}" alt="${metadata.title}" class="related-post-image">
-                            </a>
-                            <div class="related-post-content">
-                                <h3 class="related-post-title"><a href="blog-post.html?slug=${slug}">${metadata.title}</a></h3>
-                                <span class="related-post-date"><i class="far fa-calendar-alt"></i> ${formatDate(metadata.date)}</span>
-                            </div>
-                        `;
-                        
-                        container.appendChild(postCard);
-                    }
-                } catch (error) {
-                    console.error(`获取相关文章 ${slug} 失败:`, error);
+                    // 添加到相关文章列表
+                    relatedPosts.push({
+                        slug: slug,
+                        title: metadata.title || slug,
+                        date: metadata.date || new Date().toISOString().split('T')[0],
+                        thumbnail: metadata.thumbnail || ''
+                    });
                 }
+            } catch (error) {
+                console.error(`获取相关博客 ${slug} 失败:`, error);
             }
+        }
+        
+        // 清空容器
+        container.innerHTML = '';
+        
+        // 渲染相关文章
+        if (relatedPosts.length > 0) {
+            relatedPosts.forEach(post => {
+                const relatedPostEl = document.createElement('div');
+                relatedPostEl.className = 'related-post';
+                
+                // 格式化日期
+                const dateObj = new Date(post.date);
+                const formattedDate = `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, '0')}-${String(dateObj.getDate()).padStart(2, '0')}`;
+                
+                relatedPostEl.innerHTML = `
+                    <a href="blog-post.html?slug=${post.slug}" class="related-post-image-link">
+                        <img src="${post.thumbnail || 'assets/blog-default.jpg'}" alt="${post.title}" class="related-post-image">
+                    </a>
+                    <div class="related-post-content">
+                        <h3 class="related-post-title"><a href="blog-post.html?slug=${post.slug}">${post.title}</a></h3>
+                        <span class="related-post-date"><i class="far fa-calendar-alt"></i> ${formattedDate}</span>
+                    </div>
+                `;
+                
+                container.appendChild(relatedPostEl);
+            });
             
-            // 如果没有成功加载任何相关文章，隐藏区域
-            if (container.children.length === 0) {
-                document.querySelector('.related-posts-section').style.display = 'none';
-            }
+            // 添加3D倾斜效果
+            initTiltEffect();
         } else {
-            document.querySelector('.related-posts-section').style.display = 'none';
+            container.innerHTML = '<p data-i18n="noRelatedPosts">暂无相关文章</p>';
         }
     } catch (error) {
         console.error('加载相关文章失败:', error);
-        document.querySelector('.related-posts-section').style.display = 'none';
+        container.innerHTML = '<p data-i18n="loadRelatedPostsError">加载相关文章失败</p>';
     }
 }
 

@@ -2,7 +2,7 @@
 title: Git
 date: 2025-05-08
 description: 提交关键字和一些基本的说明
-thumbnail:https://raw.githubusercontent.com/vladelaina/vladelaina/refs/heads/gh-pages/blogs/Images/git.webp
+thumbnail: blogs/Images/git.webp
 tags: [Git]
 -->
 

@@ -33,6 +33,13 @@
         .edit-post-link:hover {
             color: #f77daa;
         }
+        
+        .loading-message {
+            text-align: center;
+            padding: 2rem;
+            color: #9aaee8;
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
@@ -114,6 +121,7 @@
                 
                 <div class="blog-post-content" id="blog-post-content" data-aos="fade-up" data-aos-delay="100">
                     <!-- 博客内容将通过JavaScript动态加载 -->
+                    <div class="loading-message">正在加载文章内容...</div>
                 </div>
             </div>
         </article>
@@ -123,6 +131,7 @@
                 <h2 data-i18n="relatedPosts">相关文章</h2>
                 <div class="related-posts-container" id="related-posts-container">
                     <!-- 相关文章将通过JavaScript动态加载 -->
+                    <div class="loading-message">正在加载相关文章...</div>
                 </div>
             </div>
         </section>

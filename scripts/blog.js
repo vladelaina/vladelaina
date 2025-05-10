@@ -23,15 +23,19 @@ async function loadBlogPosts() {
     try {
         const postContainer = document.getElementById('blogPostsContainer');
         
-        // 从GitHub获取索引文件
-        const indexUrl = 'https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/index.md';
+        // 从本地获取索引文件
+        const indexUrl = 'blogs/index.md';
+        console.log('尝试获取索引文件:', indexUrl);
+        
         const response = await fetch(indexUrl);
         
         if (!response.ok) {
+            console.error('索引文件请求失败，状态码:', response.status);
             throw new Error('无法获取博客索引');
         }
         
         const indexContent = await response.text();
+        console.log('索引文件内容:', indexContent);
         
         // 解析索引文件获取博客列表
         const blogSlugs = indexContent.split('\n')
@@ -42,6 +46,8 @@ async function loadBlogPosts() {
                 return match ? match[1].trim() : null;
             })
             .filter(slug => slug);
+            
+        console.log('解析出的博客列表:', blogSlugs);
         
         // 清空容器
         postContainer.innerHTML = '';
@@ -59,23 +65,31 @@ async function loadBlogPosts() {
         for (const slug of blogSlugs) {
             try {
                 // 获取文章内容
-                const postUrl = `https://raw.githubusercontent.com/vladelaina/vladelaina/gh-pages/blogs/${slug}.md`;
+                const postUrl = `blogs/${slug}.md`;
+                console.log('尝试获取文章:', postUrl);
+                
                 const postResponse = await fetch(postUrl);
                 
-                if (postResponse.ok) {
-                    const postContent = await postResponse.text();
-                    const { metadata } = parseMarkdown(postContent);
-                    
-                    // 添加到博客列表
-                    blogPosts.push({
-                        slug: slug,
-                        title: metadata.title || slug,
-                        date: metadata.date || new Date().toISOString().split('T')[0],
-                        description: metadata.description || '暂无描述',
-                        thumbnail: metadata.thumbnail || '',
-                        tags: metadata.tags || []
-                    });
+                if (!postResponse.ok) {
+                    console.error(`文章 ${slug} 请求失败，状态码:`, postResponse.status);
+                    continue;
                 }
+                
+                const postContent = await postResponse.text();
+                console.log(`文章 ${slug} 内容前100个字符:`, postContent.substring(0, 100));
+                
+                const { metadata } = parseMarkdown(postContent);
+                console.log(`文章 ${slug} 元数据:`, metadata);
+                
+                // 添加到博客列表
+                blogPosts.push({
+                    slug: slug,
+                    title: metadata.title || slug,
+                    date: metadata.date || new Date().toISOString().split('T')[0],
+                    description: metadata.description || '暂无描述',
+                    thumbnail: metadata.thumbnail || '',
+                    tags: metadata.tags || []
+                });
             } catch (error) {
                 console.error(`获取博客 ${slug} 失败:`, error);
             }
@@ -83,6 +97,7 @@ async function loadBlogPosts() {
         
         // 按日期排序
         blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        console.log('排序后的博客列表:', blogPosts);
         
         // 渲染博客卡片
         if (blogPosts.length > 0) {
@@ -150,11 +165,14 @@ function createBlogCard(post) {
     const dateObj = new Date(post.date);
     const formattedDate = `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, '0')}-${String(dateObj.getDate()).padStart(2, '0')}`;
     
+    // 处理缩略图路径
+    let thumbnailPath = post.thumbnail || 'assets/blog-default.jpg';
+    
     // 创建博客卡片HTML
     card.innerHTML = `
         <div class="shine-effect"></div>
         <a href="blog-post.html?slug=${post.slug}" class="blog-card-image-link">
-            <img src="${post.thumbnail || 'assets/blog-default.jpg'}" alt="${post.title}" class="blog-card-image">
+            <img src="${thumbnailPath}" alt="${post.title}" class="blog-card-image">
         </a>
         <div class="blog-card-content">
             <h3 class="blog-card-title"><a href="blog-post.html?slug=${post.slug}">${post.title}</a></h3>

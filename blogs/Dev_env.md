@@ -2,7 +2,7 @@
 title: Windows 开发环境设置
 date: 2025-05-08
 description: vladelaina的Windows开发环境设置和常用软件推荐
-thumbnail:https://raw.githubusercontent.com/vladelaina/vladelaina/refs/heads/gh-pages/blogs/Images/windows.webp
+thumbnail: blogs/Images/windows.webp
 tags: [开发环境, Windows, 软件推荐]
 -->
 
