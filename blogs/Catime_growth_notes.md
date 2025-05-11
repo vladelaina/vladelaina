@@ -9,6 +9,8 @@ tags: [Catime]
 ## 亲爱的朋友们，我想和你们分享一下这90多天的开发旅程，虽然不涉及具体的技术部分，但我相信这些经验对你的项目会有所帮助哦 😊
 
 
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114484249101659&bvid=BV15uVZzzEZs&cid=29894446356&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 
 [Catime](https://github.com/vladelaina/Catime)是如何在大约90天内从0做到1800+ star的呢？其中最主要的原因并不是它好用，也不仅仅是用纯C编写那么简单。更重要的原因是推广策略！🎯但最棒的部分是，这些推广手段其实不需要花一分钱💡。
 

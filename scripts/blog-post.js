@@ -91,6 +91,12 @@ function configureMarked() {
             return `<img src="${newSrc}" ${attributes}>`;
         });
         
+        // 使用正则表达式查找iframe标签，将其包裹在响应式容器中
+        const iframeRegex = /<iframe[^>]*><\/iframe>/g;
+        html = html.replace(iframeRegex, function(match) {
+            return `<div class="video-container">${match}</div>`;
+        });
+        
         return html;
     };
 }
