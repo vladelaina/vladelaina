@@ -8,6 +8,8 @@ tags: [Catime, 编译指南, 构建流程, 开发者文档]
 
 
 
+> 如果遇到任何问题，尝试解决无果时，可以[加群](https://qm.qq.com/q/LgscIMw9i0)向群友求助。
+
 ##  🪟Windows
 
 
