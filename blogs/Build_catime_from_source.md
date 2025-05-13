@@ -8,7 +8,7 @@ tags: [Catime, 编译指南, 构建流程, 开发者文档]
 
 
 
-## ✅ MinGW + xmake 编译环境搭建教程（Windows）
+##  🪟Windows
 
 
 
@@ -124,5 +124,109 @@ xmake clean     # 清理构建产物
 
 
 
+## 🪟 Ubuntu 环境配置
+
+### 📥 克隆 Catime 项目源码
+
+1. **安装 Git**：
+
+   ```bash
+   sudo apt update
+   sudo apt install git
+   ```
+
+2. **克隆项目**：
+
+   ```bash
+   git clone https://github.com/vladelaina/Catime.git
+   cd Catime
+   ```
+
+------
+
+### 🛠 安装构建工具
+
+1. **安装 MinGW（GCC 编译器）**：
+
+   ```bash
+   sudo apt install mingw-w64
+   ```
+
+2. **安装 xmake**：
+
+   ```bash
+   sudo apt install xmake
+   ```
+
+3. **安装 UPX（可选）**：
+
+   ```bash
+   sudo apt install upx-ucl
+   ```
 
 
+
+### 🚀 使用 xmake 编译项目
+
+在项目目录下执行：
+
+```bash
+xmake           # 编译项目
+xmake run       # 编译并运行项目
+xmake clean     # 清理构建产物
+```
+
+
+
+## Arch
+
+
+
+### 📥 克隆 Catime 项目源码
+
+1. **安装 Git**：
+
+   ```bash
+   sudo pacman -S git
+   ```
+
+2. **克隆项目**：
+
+   ```bash
+   git clone https://github.com/vladelaina/Catime.git
+   cd Catime
+   ```
+
+------
+
+### 🛠 安装构建工具
+
+1. **安装 MinGW（GCC 编译器）**：
+
+   ```bash
+   sudo pacman -S mingw-w64-gcc
+   ```
+
+2. **安装 xmake**：
+
+   ```bash
+   sudo pacman -S xmake
+   ```
+
+3. **安装 UPX（可选）**：
+
+   ```bash
+   sudo pacman -S upx
+   ```
+
+------
+
+### 🚀 使用 xmake 编译项目
+
+在项目目录下执行：
+
+```bash
+xmake           # 编译项目
+xmake run       # 编译并运行项目
+xmake clean     # 清理构建产物
+```
