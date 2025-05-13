@@ -47,7 +47,7 @@ tags: [Catime, 编译指南, 构建流程, 开发者文档]
 
 | 工具      | 说明                       | 推荐版本（模糊说明）                                         | 下载地址                                                     |
 | --------- | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **MinGW** | GCC 编译器                 | 类似 `x86_64-<版本号>-release-win32-seh-ucrt-rtv<数字>-rev<数字>.7z` 的版本 | [MinGW Build](https://github.com/niXman/mingw-builds-binaries/latest) |
+| **MinGW** | GCC 编译器                 | 类似 `x86_64-<版本号>-release-win32-seh-ucrt-rtv<数字>-rev<数字>.7z` 的版本 | [MinGW Build](https://github.com/niXman/mingw-builds-binaries/releases/latest) |
 | **xmake** | 构建工具                   | 类似 `xmake-v<版本号>-win64.exe` 的版本                      | [xmake](https://github.com/xmake-io/xmake/releases/latest)   |
 | **upx**   | 可执行文件压缩工具（可选） | 类似 `upx-<版本号>-win64.zip` 的版本                         | [upx](https://github.com/upx/upx/releases/latest)            |
 
