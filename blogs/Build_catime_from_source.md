@@ -78,18 +78,18 @@ xmake --version
 
 
 
+
 ### 🚀 五、使用 xmake 编译项目
 
-终端进入项目目录：使用xmake编译
+在终端进入项目根目录后，可使用以下命令进行项目的构建和管理：
 
 ```bash
-xmake
+xmake           # 编译项目
+xmake run       # 编译并运行项目
+xmake clean     # 清理构建产物
 ```
 
 
 
-补充代码：
 
-xmake run         # 运行
 
-xmake clean  	# 清理构建产物
