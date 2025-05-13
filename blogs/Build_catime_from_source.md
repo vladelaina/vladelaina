@@ -22,26 +22,13 @@ tags: [Catime, 编译指南, 构建流程, 开发者文档]
 1. **确保已安装 Git 工具**  
    如未安装，请前往 [Git 官网](https://git-scm.com/downloads) 下载并安装。
 
-2. **执行克隆命令**
+2. 📥 克隆 Catime 项目源码
 
-   打开命令行（Win + R → 输入 `cmd` → 回车），执行以下命令之一：
-
-   - 使用 SSH（推荐）：
-
-     ```bash
-     git clone git@github.com:vladelaina/Catime.git
-     ```
-
-   - 或使用 HTTPS（如未配置 SSH）：
-
-     ```bash
-     git clone https://github.com/vladelaina/Catime.git
-     ```
-
-3. **进入项目目录**
 
    ```bash
+   git clone https://github.com/vladelaina/Catime.git
    cd Catime
+   ```
 
 
 
@@ -124,46 +111,29 @@ xmake run       # 编译并运行项目
 xmake clean     # 清理构建产物
 ```
 
+---
+
+---
+
 
 
 ## Ubuntu 
 
 ### 📥 克隆 Catime 项目源码
 
-1. **安装 Git**：
 
-   ```bash
-   sudo apt update
-   sudo apt install git
-   ```
-
-2. **克隆项目**：
 
    ```bash
    git clone https://github.com/vladelaina/Catime.git
    cd Catime
    ```
 
-------
-
 ### 🛠 安装构建工具
 
-1. **安装 MinGW（GCC 编译器）**：
+
 
    ```bash
-   sudo apt install mingw-w64
-   ```
-
-2. **安装 xmake**：
-
-   ```bash
-   sudo apt install xmake
-   ```
-
-3. **安装 UPX（可选）**：
-
-   ```bash
-   sudo apt install upx-ucl
+   sudo apt update && sudo apt install -y mingw-w64 upx-ucl && curl -fsSL https://xmake.io/shget.text | bash
    ```
 
 
@@ -178,6 +148,10 @@ xmake run       # 编译并运行项目
 xmake clean     # 清理构建产物
 ```
 
+---
+
+---
+
 
 
 ## Arch
@@ -186,13 +160,7 @@ xmake clean     # 清理构建产物
 
 ### 📥 克隆 Catime 项目源码
 
-1. **安装 Git**：
 
-   ```bash
-   sudo pacman -S git
-   ```
-
-2. **克隆项目**：
 
    ```bash
    git clone https://github.com/vladelaina/Catime.git
@@ -203,23 +171,12 @@ xmake clean     # 清理构建产物
 
 ### 🛠 安装构建工具
 
-1. **安装 MinGW（GCC 编译器）**：
 
    ```bash
-   sudo pacman -S mingw-w64-gcc
+sudo pacman -Syu --noconfirm mingw-w64 upx xmake
    ```
 
-2. **安装 xmake**：
 
-   ```bash
-   sudo pacman -S xmake
-   ```
-
-3. **安装 UPX（可选）**：
-
-   ```bash
-   sudo pacman -S upx
-   ```
 
 ------
 
