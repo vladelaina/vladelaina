@@ -87,14 +87,14 @@ tags: [Catime, 编译指南, 构建流程, 开发者文档]
 
 ### 🔧 三、安装 xmake
 
-1. 安装 `xmake-v2.9.9.win64.exe`
+1. 安装  `xmake-v<版本号>-win64.exe` 
 2. 默认会自动配置环境变量（如未配置，可手动添加 `xmake` 安装目录的 `bin` 到 `PATH`）
 
 ------
 
 ### 📦 四、安装 UPX（可选）
 
-1. 解压 `upx-5.0.1-win64.zip` 到任意目录（推荐如：`C:\Tools\upx`）
+1. 解压 `upx-<版本号>-win64.zip` 到任意目录（推荐如：`C:\Tools\upx`）
 2. 添加该路径到环境变量 `PATH`
 
 ------
