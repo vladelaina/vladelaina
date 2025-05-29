@@ -10,7 +10,7 @@ tags: [Microsoft Store]
 
 
 
-## 微软召开build2025开发者大会宣布从2025年5月份起Microsoft store将对个人开发者免费
+## 微软召开build2025开发者大会宣布从2025年6月份起Microsoft store将对个人开发者免费
 
 ![Free registration for individual developers](./Images/Free_registration_for_individual_developers.webp)
 
