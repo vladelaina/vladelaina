@@ -54,7 +54,7 @@ const translations = {
         'bilibili': 'Bilibili',
         
         // 页脚
-        'copyright': '© 2024 vladelaina. All Rights Reserved.',
+        'copyright': '© 2025 vladelaina. All Rights Reserved.',
         
         // 其他
         'backToTop': '返回顶部',
@@ -115,7 +115,7 @@ const translations = {
         'bilibili': 'Bilibili',
         
         // Footer
-        'copyright': '© 2024 vladelaina. All Rights Reserved.',
+        'copyright': '© 2025 vladelaina. All Rights Reserved.',
         
         // Others
         'backToTop': 'Back to Top',
