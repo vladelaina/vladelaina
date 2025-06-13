@@ -1596,13 +1596,15 @@ p {
     transform: translateY(-3px);
 }
 
-/* 特殊处理第二个标签，用于差异化 */
-.feature-tag:nth-child(2) {
+/* 特殊处理语言标签，用于差异化 */
+.feature-tag[data-i18n="tagC"],
+.feature-tag[data-i18n="tagPython"] {
     background-color: rgba(247, 125, 170, 0.1);
     color: var(--accent-color);
 }
 
-.feature-tag:nth-child(2):hover {
+.feature-tag[data-i18n="tagC"]:hover,
+.feature-tag[data-i18n="tagPython"]:hover {
     background-color: rgba(247, 125, 170, 0.25);
     transform: translateY(-3px);
 }
