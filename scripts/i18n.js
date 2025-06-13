@@ -26,7 +26,7 @@ const translations = {
         // 项目展示
         'projects': '项目展示',
         'projectsSubtitle': '我独立完成或参与的一些项目',
-        'catimeDesc': '一款极致轻量的 Windows 倒计时工具，具有番茄工作法功能、透明界面和丰富自定义选项，只需几 MB 内存且几乎不占用 CPU 资源，便可在Windows 上优雅掌控时间。该项目在GitHub上获得了2.2k+的星标。',
+        'catimeDesc': '一款极致轻量的 Windows 倒计时工具，具有番茄工作法功能、透明界面和丰富自定义选项，只需几 MB 内存且几乎不占用 CPU 资源，便可在Windows 上优雅掌控时间。该项目在GitHub上获得了2.3k+的星标。',
         'windowsCleanerDesc': '一款专治C盘爆红及各种不服！的Windows系统清理工具。通过深度清理算法，帮助用户释放磁盘空间，优化系统性能。该项目在GitHub上获得了1.6k+的星标。',
         'officialWebsite': '官方网站',
         'viewSource': '查看源码',
@@ -90,7 +90,7 @@ const translations = {
         // Projects
         'projects': 'Projects',
         'projectsSubtitle': 'Projects I\'ve completed independently or participated in',
-        'catimeDesc': 'An ultra-lightweight Windows countdown tool featuring Pomodoro functionality, transparent interface, and rich customization options. With only a few MB of memory and virtually no CPU usage, elegantly control your time on Windows. This project has received 2.2k+ stars on GitHub.',
+        'catimeDesc': 'An ultra-lightweight Windows countdown tool featuring Pomodoro functionality, transparent interface, and rich customization options. With only a few MB of memory and virtually no CPU usage, elegantly control your time on Windows. This project has received 2.3k+ stars on GitHub.',
         'windowsCleanerDesc': 'A Windows system cleaner tool specially designed to fix red C drive alerts and other disk space issues. Through deep cleaning algorithms, it helps users free up disk space and optimize system performance. This project has received 1.6k+ stars on GitHub.',
         'officialWebsite': 'Official Website',
         'viewSource': 'View Source',

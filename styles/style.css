@@ -1435,12 +1435,12 @@ p {
 
 .feature-card:nth-child(2):hover .feature-icon {
     animation: hourglassFlip 3s ease-in-out infinite;
-    color: #F7AF3E; /* 沙漏金色 */
+    color: #4a86e8; /* 蓝色 - Windows Cleaner主题色 */
 }
 
 .feature-card:nth-child(2):hover {
     animation: jelly 0.7s ease, hourglassSand 2.5s ease-in-out infinite;
-    background: radial-gradient(circle at center, rgba(247, 175, 62, 0.1) 0%, rgba(248, 250, 255, 1) 70%);
+    background: radial-gradient(circle at center, rgba(74, 134, 232, 0.1) 0%, rgba(248, 250, 255, 1) 70%);
 }
 
 .feature-card:nth-child(3):hover .feature-icon {
@@ -1485,7 +1485,7 @@ p {
 
 .feature-card:nth-child(2):hover::before {
     opacity: 1;
-    background: radial-gradient(circle at center, rgba(247, 175, 62, 0.15), transparent 70%);
+    background: radial-gradient(circle at center, rgba(74, 134, 232, 0.15), transparent 70%);
 }
 
 .feature-card:nth-child(3):hover::before {
@@ -1526,7 +1526,7 @@ p {
 
 /* 特定卡片标题颜色 */
 .feature-card:nth-child(1):hover h3 { color: #7d6dd8; }
-.feature-card:nth-child(2):hover h3 { color: #e9a23b; }
+.feature-card:nth-child(2):hover h3 { color: #4a86e8; }
 .feature-card:nth-child(3):hover h3 { color: #e96e99; }
 .feature-card:nth-child(4):hover h3 { color: #edc537; }
 
