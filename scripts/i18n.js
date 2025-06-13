@@ -25,7 +25,7 @@ const translations = {
         
         // 项目展示
         'projects': '项目展示',
-        'projectsSubtitle': '我参与或独立完成的一些项目',
+        'projectsSubtitle': '我独立完成或参与的一些项目',
         'catimeDesc': '一款极致轻量的 Windows 倒计时工具，具有番茄工作法功能、透明界面和丰富自定义选项，只需几 MB 内存且几乎不占用 CPU 资源，便可在Windows 上优雅掌控时间。该项目在GitHub上获得了2.2k+的星标。',
         'officialWebsite': '官方网站',
         'viewSource': '查看源码',
@@ -86,7 +86,7 @@ const translations = {
         
         // Projects
         'projects': 'Projects',
-        'projectsSubtitle': 'Projects I\'ve participated in or completed independently',
+        'projectsSubtitle': 'Projects I\'ve completed independently or participated in',
         'catimeDesc': 'An ultra-lightweight Windows countdown tool with Pomodoro functionality, featuring a transparent interface and rich customization options, using only a few MB of memory and almost no CPU resources, elegantly helping you manage time on Windows. This project has received over 2.2k stars on GitHub.',
         'officialWebsite': 'Official Website',
         'viewSource': 'View Source',
