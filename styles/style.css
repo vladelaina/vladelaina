@@ -1932,6 +1932,20 @@ p {
     .info-card p {
         font-size: 0.9rem;
     }
+    
+    /* 为小屏幕设备进一步优化友链头像 */
+    .friend-avatar {
+        flex: 0 0 50px;
+        margin-right: 0.8rem;
+        min-width: 50px;
+        min-height: 50px;
+    }
+    
+    .friend-avatar img {
+        width: 50px;
+        height: 50px;
+        border-width: 2px;
+    }
 
      /* 滚动进度指示器 - 进一步减小 */
     .scroll-progress-container {
@@ -1982,6 +1996,7 @@ p {
     border: 1px solid rgba(122, 162, 247, 0.1);
     overflow: hidden;
     position: relative;
+    align-items: center;
 }
 
 .friend-card:hover {
@@ -2012,6 +2027,8 @@ p {
 .friend-avatar {
     flex: 0 0 80px;
     margin-right: 1.5rem;
+    min-width: 80px;
+    min-height: 80px;
 }
 
 .friend-avatar img {
@@ -2019,6 +2036,7 @@ p {
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
+    aspect-ratio: 1/1;
     border: 3px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 5px 15px rgba(122, 162, 247, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -2097,15 +2115,88 @@ p {
     .friend-avatar {
         flex: 0 0 60px;
         margin-right: 1rem;
+        min-width: 60px;
+        min-height: 60px;
     }
     
     .friend-avatar img {
         width: 60px;
         height: 60px;
+        object-fit: cover;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        border-width: 2px;
     }
     
     .friend-info h3 {
         font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px; /* 进一步减小基础字号 */
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .cta-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.2rem;
+    }
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+    .info-card h3 {
+        font-size: 1.1rem;
+    }
+    .info-card p {
+        font-size: 0.9rem;
+    }
+    
+    /* 为小屏幕设备进一步优化友链头像 */
+    .friend-avatar {
+        flex: 0 0 50px;
+        margin-right: 0.8rem;
+        min-width: 50px;
+        min-height: 50px;
+    }
+    
+    .friend-avatar img {
+        width: 50px;
+        height: 50px;
+        border-width: 2px;
+    }
+
+     /* 滚动进度指示器 - 进一步减小 */
+    .scroll-progress-container {
+        width: 50px;
+        height: 50px;
+    }
+    .scroll-progress-icon {
+        font-size: 1rem;
     }
 }
 
