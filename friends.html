@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="vladelaina - 友情链接">
+    <title data-i18n="pageTitle">vladelaina</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/blog.css">
+
+    <link rel="icon" type="image/png" href="assets/vladelaina.jpg">
+</head>
+<body>
+    <div class="scroll-progress-container" id="scrollProgressContainer">
+        <div class="scroll-progress-glow"></div>
+        <div class="scroll-progress-particles">
+            <span class="particle p1"></span>
+            <span class="particle p2"></span>
+            <span class="particle p3"></span>
+            <span class="particle p4"></span>
+            <span class="particle p5"></span>
+            <span class="particle p6"></span>
+            <span class="particle p7"></span>
+            <span class="particle p8"></span>
+        </div>
+        <svg class="scroll-progress-circle" viewBox="0 0 100 100">
+            <defs>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#7aa2f7" />
+                    <stop offset="50%" stop-color="#9aaee8" />
+                    <stop offset="100%" stop-color="#f77daa" />
+                </linearGradient>
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+            </defs>
+            <circle class="scroll-progress-circle-bg" cx="50" cy="50" r="45"></circle>
+            <circle class="scroll-progress-circle-fill" cx="50" cy="50" r="45"></circle>
+            <circle class="scroll-progress-circle-inner" cx="50" cy="50" r="35"></circle>
+            <path class="scroll-progress-circle-deco" d="M50,15 A35,35 0 0,1 85,50 A35,35 0 0,1 50,85 A35,35 0 0,1 15,50 A35,35 0 0,1 50,15 Z" />
+        </svg>
+        <div class="scroll-progress-icon">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+        <div class="scroll-progress-emoji-container">
+            <span class="emoji emoji-rocket">🚀</span>
+            <span class="emoji emoji-star">⭐</span>
+            <span class="emoji emoji-heart">💖</span>
+            <span class="emoji emoji-sparkles">✨</span>
+        </div>
+        <div class="scroll-progress-stars">
+            <span class="star star-1">✦</span>
+            <span class="star star-2">✧</span>
+            <span class="star star-3">✦</span>
+            <span class="star star-4">✧</span>
+            <span class="star star-5">✦</span>
+            <span class="star star-6">✧</span>
+        </div>
+        <div class="scroll-progress-percentage">0%</div>
+        <div class="scroll-progress-tooltip" data-i18n="backToTop">返回顶部</div>
+    </div>
+
+    <header class="blog-header">
+        <div class="container">
+            <nav class="blog-nav">
+                <a href="index.html" class="blog-nav-logo">vladelaina</a>
+                <ul class="blog-nav-links">
+                    <li><a href="index.html" data-i18n="homeLink">首页</a></li>
+                    <li><a href="blog.html" data-i18n="blogLink">博客</a></li>
+                    <li><a href="friends.html" class="active" data-i18n="friendLink">友链</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 data-i18n="friendsPageTitle">友情链接</h1>
+                <p data-i18n="friendsPageDesc">以下是我的朋友们的网站，欢迎访问</p>
+            </div>
+        </section>
+
+        <section class="friends-section">
+            <div class="container">
+                <div class="friends-grid">
+                    <!-- 友链示例 1 -->
+                    <div class="friend-card" data-aos="fade-up">
+                        <div class="friend-avatar">
+                            <img src="https://via.placeholder.com/100" alt="朋友1的头像">
+                        </div>
+                        <div class="friend-info">
+                            <h3>朋友网站1</h3>
+                            <p class="friend-description">这是朋友网站1的简短描述，介绍一下这个网站的主要内容和特点。</p>
+                            <a href="https://example.com" class="friend-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt"></i> 访问网站
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 友链示例 2 -->
+                    <div class="friend-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="friend-avatar">
+                            <img src="https://via.placeholder.com/100" alt="朋友2的头像">
+                        </div>
+                        <div class="friend-info">
+                            <h3>朋友网站2</h3>
+                            <p class="friend-description">这是朋友网站2的简短描述，介绍一下这个网站的主要内容和特点。</p>
+                            <a href="https://example.com" class="friend-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt"></i> 访问网站
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 友链示例 3 -->
+                    <div class="friend-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="friend-avatar">
+                            <img src="https://via.placeholder.com/100" alt="朋友3的头像">
+                        </div>
+                        <div class="friend-info">
+                            <h3>朋友网站3</h3>
+                            <p class="friend-description">这是朋友网站3的简短描述，介绍一下这个网站的主要内容和特点。</p>
+                            <a href="https://example.com" class="friend-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt"></i> 访问网站
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 友链示例 4 -->
+                    <div class="friend-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="friend-avatar">
+                            <img src="https://via.placeholder.com/100" alt="朋友4的头像">
+                        </div>
+                        <div class="friend-info">
+                            <h3>朋友网站4</h3>
+                            <p class="friend-description">这是朋友网站4的简短描述，介绍一下这个网站的主要内容和特点。</p>
+                            <a href="https://example.com" class="friend-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt"></i> 访问网站
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 添加友链表单 -->
+                <div class="add-friend-section" data-aos="fade-up">
+                    <h2 data-i18n="addFriendTitle">申请友链</h2>
+                    <p data-i18n="addFriendDesc">如果你想与我交换友链，请填写以下信息：</p>
+                    
+                    <div class="my-site-info">
+                        <h3 data-i18n="mySiteInfo">我的站点信息</h3>
+                        <ul>
+                            <li><strong data-i18n="siteName">站点名称：</strong> vladelaina</li>
+                            <li><strong data-i18n="siteLink">站点链接：</strong> https://vladelaina.com</li>
+                            <li><strong data-i18n="siteDesc">站点描述：</strong> 信仰开源之道，崇尚 Arch 之美，沉溺二次元世界</li>
+                            <li><strong data-i18n="siteAvatar">站点头像：</strong> https://vladelaina.com/assets/vladelaina.jpg</li>
+                        </ul>
+                    </div>
+                    
+                    <p data-i18n="contactMeForFriend">请通过 <a href="mailto:vladelaina@gmail.com">邮件</a> 或其他 <a href="index.html#contact">联系方式</a> 与我联系交换友链。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p data-i18n="copyright">&copy; 2025 vladelaina. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="scripts/i18n.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html> 

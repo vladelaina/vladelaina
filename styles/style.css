@@ -1959,6 +1959,206 @@ p {
   }
 }
 
+/* 友链页面样式 */
+.friends-section {
+    padding: 3rem 0 5rem;
+    background-color: var(--surface-color);
+}
+
+.friends-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.friend-card {
+    display: flex;
+    background-color: #f8faff;
+    border-radius: var(--border-radius-large);
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(122, 162, 247, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.friend-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--card-hover-shadow);
+    border-color: rgba(122, 162, 247, 0.2);
+    animation: jelly 0.7s ease;
+}
+
+.friend-card:hover::before {
+    opacity: 1;
+}
+
+.friend-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(122, 162, 247, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.friend-avatar {
+    flex: 0 0 80px;
+    margin-right: 1.5rem;
+}
+
+.friend-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px rgba(122, 162, 247, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.friend-card:hover .friend-avatar img {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(122, 162, 247, 0.3);
+    border-color: white;
+}
+
+.friend-info {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.friend-info h3 {
+    color: var(--heading-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.friend-card:hover .friend-info h3 {
+    color: var(--primary-color);
+}
+
+.friend-description {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.friend-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.friend-link i {
+    margin-right: 0.4rem;
+    transition: transform 0.3s ease;
+}
+
+.friend-link:hover {
+    color: var(--accent-color);
+}
+
+.friend-link:hover i {
+    transform: translateX(3px);
+}
+
+.add-friend-section {
+    background-color: #f8faff;
+    border-radius: var(--border-radius-large);
+    padding: 2.5rem;
+    box-shadow: var(--card-shadow);
+    margin-top: 2rem;
+    border: 1px solid rgba(122, 162, 247, 0.1);
+}
+
+.add-friend-section h2 {
+    color: var(--heading-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.my-site-info {
+    background-color: rgba(122, 162, 247, 0.05);
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0.5rem;
+}
+
+.my-site-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.my-site-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.my-site-info li {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+}
+
+.my-site-info strong {
+    color: var(--heading-color);
+    margin-right: 0.5rem;
+}
+
+/* 响应式友链样式 */
+@media (max-width: 992px) {
+    .friends-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .friends-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .add-friend-section {
+        padding: 1.8rem;
+    }
+    
+    .friend-card {
+        padding: 1.2rem;
+    }
+    
+    .friend-avatar {
+        flex: 0 0 60px;
+        margin-right: 1rem;
+    }
+    
+    .friend-avatar img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .friend-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .my-site-info {
+        padding: 1.2rem;
+    }
+}
+
 /* 语言切换按钮样式 */
 .language-switcher {
     position: fixed;

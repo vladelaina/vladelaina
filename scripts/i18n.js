@@ -5,6 +5,21 @@ const translations = {
         'switchLanguage': '切换语言',
         'languageEN': 'English',
         'languageZH': '中文',
+        'homeLink': '首页',
+        'blogLink': '博客',
+        'friendLink': '友链',
+        
+        // 友链页面
+        'friendsPageTitle': '友情链接',
+        'friendsPageDesc': '以下是我的朋友们的网站，欢迎访问',
+        'addFriendTitle': '申请友链',
+        'addFriendDesc': '如果你想与我交换友链，请填写以下信息：',
+        'mySiteInfo': '我的站点信息',
+        'siteName': '站点名称：',
+        'siteLink': '站点链接：',
+        'siteDesc': '站点描述：',
+        'siteAvatar': '站点头像：',
+        'contactMeForFriend': '请通过邮件或其他联系方式与我联系交换友链。',
         
         // 标题
         'pageTitle': 'vladelaina',
@@ -69,6 +84,21 @@ const translations = {
         'switchLanguage': 'Switch Language',
         'languageEN': 'English',
         'languageZH': '中文',
+        'homeLink': 'Home',
+        'blogLink': 'Blog',
+        'friendLink': 'Friends',
+        
+        // Friends page
+        'friendsPageTitle': 'Friend Links',
+        'friendsPageDesc': 'Here are the websites of my friends, feel free to visit',
+        'addFriendTitle': 'Apply for Friend Link',
+        'addFriendDesc': 'If you would like to exchange links with me, please provide the following information:',
+        'mySiteInfo': 'My Site Information',
+        'siteName': 'Site Name:',
+        'siteLink': 'Site URL:',
+        'siteDesc': 'Site Description:',
+        'siteAvatar': 'Site Avatar:',
+        'contactMeForFriend': 'Please contact me via email or other contact methods to exchange friend links.',
         
         // Title
         'pageTitle': 'vladelaina - Personal Site',
