@@ -2076,49 +2076,7 @@ p {
     transform: translateX(3px);
 }
 
-.add-friend-section {
-    background-color: #f8faff;
-    border-radius: var(--border-radius-large);
-    padding: 2.5rem;
-    box-shadow: var(--card-shadow);
-    margin-top: 2rem;
-    border: 1px solid rgba(122, 162, 247, 0.1);
-}
 
-.add-friend-section h2 {
-    color: var(--heading-color);
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
-
-.my-site-info {
-    background-color: rgba(122, 162, 247, 0.05);
-    border-left: 4px solid var(--primary-color);
-    padding: 1.5rem;
-    margin: 1.5rem 0;
-    border-radius: 0.5rem;
-}
-
-.my-site-info h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-}
-
-.my-site-info ul {
-    list-style: none;
-    padding: 0;
-}
-
-.my-site-info li {
-    margin-bottom: 0.8rem;
-    font-size: 1rem;
-}
-
-.my-site-info strong {
-    color: var(--heading-color);
-    margin-right: 0.5rem;
-}
 
 /* 响应式友链样式 */
 @media (max-width: 992px) {
@@ -2130,10 +2088,6 @@ p {
 @media (max-width: 768px) {
     .friends-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .add-friend-section {
-        padding: 1.8rem;
     }
     
     .friend-card {
@@ -2152,10 +2106,6 @@ p {
     
     .friend-info h3 {
         font-size: 1.1rem;
-    }
-    
-    .my-site-info {
-        padding: 1.2rem;
     }
 }
 
