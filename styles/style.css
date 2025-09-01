@@ -2366,3 +2366,59 @@ p {
         filter: none;
     }
 }
+
+/* 纸飞机动画样式 */
+.contact-section .section-title .fa-paper-plane {
+    transition: all 0.3s ease;
+    transform-origin: center;
+    display: inline-block;
+    position: relative;
+}
+
+/* 鼠标悬停时的纸飞机起飞动画 */
+.contact-section .section-title:hover .fa-paper-plane {
+    animation: paperPlaneFlyOut 0.8s ease-out forwards;
+    color: #ff6b9d !important;
+    filter: drop-shadow(0 0 12px rgba(255, 107, 157, 0.8));
+}
+
+/* 鼠标离开时的纸飞机返回动画 */
+.contact-section .section-title:not(:hover) .fa-paper-plane {
+    animation: paperPlaneFlyBack 0.6s ease-in forwards;
+}
+
+/* 纸飞机飞出动画关键帧 */
+@keyframes paperPlaneFlyOut {
+    0% { 
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    100% { 
+        transform: translate(150px, -100px) rotate(30deg) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* 纸飞机返回动画关键帧 */
+@keyframes paperPlaneFlyBack {
+    0% { 
+        transform: translate(150px, -100px) rotate(30deg) scale(0.5);
+        opacity: 0;
+    }
+    100% { 
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* 响应式调整 - 移动端禁用纸飞机动画 */
+@media (max-width: 768px) {
+    .contact-section .section-title:hover .fa-paper-plane,
+    .contact-section .section-title:not(:hover) .fa-paper-plane {
+        animation: none;
+        filter: none;
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 1;
+        color: #f77daa !important;
+    }
+}
