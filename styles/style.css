@@ -2291,3 +2291,78 @@ p {
 .language-switch-btn:hover {
     display: none;
 }
+
+/* 齿轮动画样式 */
+.gear-container {
+    display: inline-block;
+    position: relative;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.gear-1, .gear-2 {
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.gear-1 {
+    position: relative;
+    z-index: 2;
+}
+
+.gear-2 {
+    position: absolute;
+    left: 1.2rem;
+    top: 0.8rem;
+    font-size: 1.4rem;
+    z-index: 1;
+}
+
+/* 鼠标悬停时的齿轮动画 */
+.section-title:hover .gear-1 {
+    animation: gearRotateClockwise 2s linear infinite;
+    color: #5fb36e !important;
+    filter: drop-shadow(0 0 8px rgba(95, 179, 110, 0.6));
+}
+
+.section-title:hover .gear-2 {
+    animation: gearRotateCounterClockwise 2s linear infinite;
+    color: #5a85d8 !important;
+    filter: drop-shadow(0 0 8px rgba(90, 133, 216, 0.6));
+}
+
+/* 齿轮旋转动画关键帧 */
+@keyframes gearRotateClockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes gearRotateCounterClockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .gear-container {
+        margin-left: 0.3rem;
+    }
+    
+    .gear-1, .gear-2 {
+        font-size: 1.5rem;
+    }
+    
+    .gear-2 {
+        left: 1rem;
+        top: 0.6rem;
+        font-size: 1.1rem;
+    }
+    
+    /* 移动端禁用齿轮动画 */
+    .section-title:hover .gear-1,
+    .section-title:hover .gear-2 {
+        animation: none;
+        filter: none;
+    }
+}
