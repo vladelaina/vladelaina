@@ -110,7 +110,6 @@ tags: [开发环境, Windows, 软件推荐]
 
 - [Open-as-Popup](https://chromewebstore.google.com/detail/open-as-popup/ncppfjladdkdaemaghochfikpmghbcpc?hl=zh-CN)
 
-- [Ries](https://chromewebstore.google.com/detail/ries-learn-language-natur/gommajbfaholfodlhddhaonphdhonjgj?hl=zh-CN)
 
 - [SimpleExtManager](https://chromewebstore.google.com/detail/simpleextmanager/kniehgiejgnnpgojkdhhjbgbllnfkfdk?hl=zh-CN)
 
@@ -123,6 +122,7 @@ tags: [开发环境, Windows, 软件推荐]
 - [图片助手(ImageAssistant) 批量图片下载器](https://chromewebstore.google.com/detail/%E5%9B%BE%E7%89%87%E5%8A%A9%E6%89%8Bimageassistant-%E6%89%B9%E9%87%8F%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/dbjbempljhcmhlfpfacalomonjpalpko?hl=zh-CN)
 
 -  [有道灵动翻译](https://chromewebstore.google.com/detail/%E6%9C%89%E9%81%93%E7%81%B5%E5%8A%A8%E7%BF%BB%E8%AF%91/jlpcnoohcpfgpbalhlggdhjocgnlgafn?hl=zh-CN)
+
 
 
 
