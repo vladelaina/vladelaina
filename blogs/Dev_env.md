@@ -8,6 +8,26 @@ tags: [开发环境, Windows, 软件推荐]
 
 # 这里是vladelaina的windows设置
 
+## Skip Online Updates
+
+1. Press **Shift + F10** to open Command Prompt
+2. Enter
+      ```powershell
+      start ms-cxh:localonly
+      ```
+## MAS Activation
+
+1. Open **PowerShell** as Administrator
+2. Execute the following command:
+
+   ```powershell
+   irm https://get.activated.win | iex
+   ```
+3. When prompted, enter `3`
+4. Then enter `1`
+5. Activation is complete
+
+
 ## software
 
 - [TranslucentTB](https://apps.microsoft.com/detail/9pf4kz2vn4w9?rtc=1&hl=zh-cn&gl=CH) - 透明任务栏
@@ -122,6 +142,7 @@ tags: [开发环境, Windows, 软件推荐]
 - [图片助手(ImageAssistant) 批量图片下载器](https://chromewebstore.google.com/detail/%E5%9B%BE%E7%89%87%E5%8A%A9%E6%89%8Bimageassistant-%E6%89%B9%E9%87%8F%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/dbjbempljhcmhlfpfacalomonjpalpko?hl=zh-CN)
 
 -  [有道灵动翻译](https://chromewebstore.google.com/detail/%E6%9C%89%E9%81%93%E7%81%B5%E5%8A%A8%E7%BF%BB%E8%AF%91/jlpcnoohcpfgpbalhlggdhjocgnlgafn?hl=zh-CN)
+
 
 
 
