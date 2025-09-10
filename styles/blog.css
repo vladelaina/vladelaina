@@ -189,10 +189,39 @@
     color: var(--text-muted);
 }
 
+.blog-card-date-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .blog-card-date {
     display: flex;
     align-items: center;
     gap: 0.3rem;
+}
+
+.blog-edit-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(var(--primary-rgb), 0.1);
+    color: var(--primary-color);
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.blog-edit-link:hover {
+    background-color: rgba(var(--primary-rgb), 0.2);
+    color: var(--accent-color);
+    transform: translateY(-1px);
+    opacity: 1;
+    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.3);
 }
 
 .blog-card-tags {

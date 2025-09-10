@@ -177,7 +177,16 @@ function createBlogCard(post) {
         <div class="blog-card-content">
             <h3 class="blog-card-title"><a href="blog-post.html?slug=${post.slug}">${post.title}</a></h3>
             <div class="blog-card-meta">
-                <span class="blog-card-date"><i class="far fa-calendar-alt"></i> ${formattedDate}</span>
+                <div class="blog-card-date-container">
+                    <span class="blog-card-date"><i class="far fa-calendar-alt"></i> ${formattedDate}</span>
+                    <a href="https://github.com/vladelaina/vladelaina/edit/gh-pages/blogs/${post.slug}.md" 
+                       class="blog-edit-link" 
+                       title="编辑文章" 
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </div>
                 <div class="blog-card-tags">
                     ${post.tags.slice(0, 2).map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
                 </div>
