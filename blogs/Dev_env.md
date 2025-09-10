@@ -70,8 +70,6 @@ tags: [开发环境, Windows, 软件推荐]
 
 - [Caesium Image Compressor](https://github.com/Lymphatus/caesium-image-compressor) - 图片压缩
 
-- [uu加速器](https://uu.163.com/) - 加速器
-
 - [typora](https://typoraio.cn/) - md编辑工具 - [主题](https://github.com/vladelaina/Typora-Theme)
 
 - [renamer](https://www.den4b.com/products/renamer) - 重命名工具
@@ -142,6 +140,7 @@ tags: [开发环境, Windows, 软件推荐]
 - [图片助手(ImageAssistant) 批量图片下载器](https://chromewebstore.google.com/detail/%E5%9B%BE%E7%89%87%E5%8A%A9%E6%89%8Bimageassistant-%E6%89%B9%E9%87%8F%E5%9B%BE%E7%89%87%E4%B8%8B%E8%BD%BD/dbjbempljhcmhlfpfacalomonjpalpko?hl=zh-CN)
 
 -  [有道灵动翻译](https://chromewebstore.google.com/detail/%E6%9C%89%E9%81%93%E7%81%B5%E5%8A%A8%E7%BF%BB%E8%AF%91/jlpcnoohcpfgpbalhlggdhjocgnlgafn?hl=zh-CN)
+
 
 
 
