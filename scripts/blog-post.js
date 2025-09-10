@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 初始化滚动进度
     initScrollProgress();
+    
+    // 初始化大纲功能
+    initOutline();
 });
 
 // 配置Marked解析器
@@ -206,6 +209,9 @@ async function loadBlogPost(slug) {
         
         // 处理图片点击预览
         setupImagePreviews();
+        
+        // 生成大纲
+        generateOutline();
     } catch (error) {
         console.error('加载文章失败:', error);
         showError('加载文章失败，请稍后再试');
@@ -507,4 +513,230 @@ function initScrollProgress() {
     scrollProgressContainer.addEventListener('mouseleave', function() {
         this.classList.remove('hover');
     });
+}
+
+// 初始化大纲功能
+function initOutline() {
+    const toggleBtn = document.getElementById('outlineToggleBtn');
+    const sidebar = document.getElementById('outlineSidebar');
+    const overlay = document.getElementById('outlineOverlay');
+    
+    if (!toggleBtn || !sidebar || !overlay) {
+        return;
+    }
+    
+    // 大纲切换按钮点击事件
+    toggleBtn.addEventListener('click', function() {
+        toggleOutline();
+    });
+    
+    // 点击遮罩层关闭大纲
+    overlay.addEventListener('click', function() {
+        closeOutline();
+    });
+    
+    // ESC键关闭大纲
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+            closeOutline();
+        }
+    });
+    
+    // 滚动时高亮当前大纲项
+    window.addEventListener('scroll', throttle(updateActiveOutlineItem, 100));
+}
+
+// 生成大纲
+function generateOutline() {
+    const content = document.getElementById('blog-post-content');
+    const outlineContent = document.getElementById('outlineContent');
+    
+    if (!content || !outlineContent) {
+        return;
+    }
+    
+    // 查找所有标题元素
+    const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    
+    if (headings.length === 0) {
+        outlineContent.innerHTML = '<p class="no-outline">这篇文章没有标题结构</p>';
+        return;
+    }
+    
+    // 为每个标题添加锚点ID
+    headings.forEach((heading, index) => {
+        if (!heading.id) {
+            // 生成基于文本内容的ID
+            let id = heading.textContent.trim()
+                .replace(/\s+/g, '-')
+                .replace(/[^\w\u4e00-\u9fa5\-]/g, '')
+                .toLowerCase();
+            
+            // 确保ID唯一
+            if (document.getElementById(id)) {
+                id += `-${index}`;
+            }
+            
+            heading.id = id;
+        }
+    });
+    
+    // 生成大纲HTML
+    let outlineHTML = '';
+    headings.forEach((heading, index) => {
+        const level = parseInt(heading.tagName.charAt(1));
+        const text = heading.textContent.trim();
+        const id = heading.id;
+        
+        outlineHTML += `
+            <a href="#${id}" class="outline-item level-${level}" data-target="${id}">
+                ${text}
+            </a>
+        `;
+    });
+    
+    outlineContent.innerHTML = outlineHTML;
+    
+    // 为大纲项添加点击事件
+    const outlineItems = outlineContent.querySelectorAll('.outline-item');
+    outlineItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // 滚动到目标位置，考虑固定导航栏的高度
+                const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 100;
+                
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+                
+                // 高亮目标标题
+                highlightHeading(targetElement);
+            }
+        });
+    });
+}
+
+// 切换大纲显示/隐藏
+function toggleOutline() {
+    const sidebar = document.getElementById('outlineSidebar');
+    const toggleBtn = document.getElementById('outlineToggleBtn');
+    const overlay = document.getElementById('outlineOverlay');
+    const icon = toggleBtn.querySelector('.outline-icon');
+    
+    if (sidebar.classList.contains('active')) {
+        closeOutline();
+    } else {
+        openOutline();
+    }
+}
+
+// 打开大纲
+function openOutline() {
+    const sidebar = document.getElementById('outlineSidebar');
+    const toggleBtn = document.getElementById('outlineToggleBtn');
+    const overlay = document.getElementById('outlineOverlay');
+    
+    sidebar.classList.add('active');
+    toggleBtn.classList.add('active');
+    overlay.classList.add('active');
+    
+    // 更新当前激活的大纲项
+    updateActiveOutlineItem();
+}
+
+// 关闭大纲
+function closeOutline() {
+    const sidebar = document.getElementById('outlineSidebar');
+    const toggleBtn = document.getElementById('outlineToggleBtn');
+    const overlay = document.getElementById('outlineOverlay');
+    const icon = toggleBtn.querySelector('.outline-icon');
+    
+    sidebar.classList.remove('active');
+    toggleBtn.classList.remove('active');
+    overlay.classList.remove('active');
+    icon.textContent = '○';
+}
+
+// 更新当前激活的大纲项
+function updateActiveOutlineItem() {
+    const sidebar = document.getElementById('outlineSidebar');
+    if (!sidebar.classList.contains('active')) {
+        return;
+    }
+    
+    const headings = document.querySelectorAll('#blog-post-content h1, #blog-post-content h2, #blog-post-content h3, #blog-post-content h4, #blog-post-content h5, #blog-post-content h6');
+    const outlineItems = document.querySelectorAll('.outline-item');
+    
+    let activeHeading = null;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // 找到当前最接近的标题
+    for (let i = headings.length - 1; i >= 0; i--) {
+        const heading = headings[i];
+        const headingTop = heading.getBoundingClientRect().top + scrollTop;
+        
+        if (scrollTop + 120 >= headingTop) {  // 120是偏移量，考虑导航栏高度
+            activeHeading = heading;
+            break;
+        }
+    }
+    
+    // 更新大纲项的激活状态
+    outlineItems.forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    if (activeHeading) {
+        const activeItem = document.querySelector(`.outline-item[data-target="${activeHeading.id}"]`);
+        if (activeItem) {
+            activeItem.classList.add('active');
+            
+            // 滚动大纲侧边栏确保激活项可见
+            const sidebarRect = sidebar.getBoundingClientRect();
+            const itemRect = activeItem.getBoundingClientRect();
+            
+            if (itemRect.top < sidebarRect.top + 100 || itemRect.bottom > sidebarRect.bottom - 50) {
+                activeItem.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        }
+    }
+}
+
+// 高亮标题元素
+function highlightHeading(element) {
+    // 移除之前的高亮
+    const prevHighlighted = document.querySelector('.heading-highlighted');
+    if (prevHighlighted) {
+        prevHighlighted.classList.remove('heading-highlighted');
+    }
+    
+    // 添加高亮效果
+    element.classList.add('heading-highlighted');
+    
+    // 2秒后移除高亮
+    setTimeout(() => {
+        element.classList.remove('heading-highlighted');
+    }, 2000);
+}
+
+// 节流函数
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
 } 

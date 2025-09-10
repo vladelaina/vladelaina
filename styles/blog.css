@@ -992,4 +992,259 @@ pre:hover .copy-button {
     .friend-info h3 {
         font-size: 1.1rem;
     }
+}
+
+/* 大纲切换按钮样式 */
+.outline-toggle-btn {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.outline-toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+.outline-icon {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+/* 大纲侧边栏样式 */
+.outline-sidebar {
+    position: fixed;
+    left: -350px;
+    top: 0;
+    width: 320px;
+    height: 100vh;
+    background: rgba(var(--background-alt-rgb), 0.95);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(var(--border-rgb), 0.2);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.outline-sidebar.active {
+    left: 0;
+}
+
+.outline-header {
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid rgba(var(--border-rgb), 0.15);
+    background: rgba(var(--primary-rgb), 0.05);
+}
+
+.outline-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.outline-header h3::before {
+    content: "📖";
+    font-size: 1rem;
+}
+
+.outline-content {
+    padding: 1rem 0;
+}
+
+/* 大纲项目样式 */
+.outline-item {
+    padding: 0.4rem 1.5rem;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    position: relative;
+}
+
+.outline-item:hover {
+    background-color: rgba(var(--primary-rgb), 0.08);
+    border-left-color: var(--primary-color);
+    padding-left: 1.8rem;
+}
+
+.outline-item.active {
+    background-color: rgba(var(--primary-rgb), 0.12);
+    border-left-color: var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* 不同级别的标题缩进 */
+.outline-item.level-1 {
+    padding-left: 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.outline-item.level-2 {
+    padding-left: 2rem;
+    font-size: 0.9rem;
+}
+
+.outline-item.level-3 {
+    padding-left: 2.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.outline-item.level-4 {
+    padding-left: 3rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.outline-item.level-5 {
+    padding-left: 3.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.outline-item.level-6 {
+    padding-left: 4rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* 当大纲打开时，隐藏按钮 */
+.outline-toggle-btn.active {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* 遮罩层 - 隐藏但保留用于点击检测 */
+.outline-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.outline-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 自定义滚动条 */
+.outline-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.outline-sidebar::-webkit-scrollbar-track {
+    background: rgba(var(--background-rgb), 0.3);
+}
+
+.outline-sidebar::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+    border-radius: 3px;
+}
+
+.outline-sidebar::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, var(--accent-color), var(--primary-color));
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .outline-sidebar {
+        width: 280px;
+        left: -310px;
+    }
+    
+    .outline-toggle-btn.active {
+        left: 300px;
+    }
+    
+    .outline-item {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .outline-item.level-1 {
+        padding-left: 1rem;
+    }
+    
+    .outline-item.level-2 {
+        padding-left: 1.5rem;
+    }
+    
+    .outline-item.level-3 {
+        padding-left: 2rem;
+    }
+    
+    .outline-item.level-4 {
+        padding-left: 2.5rem;
+    }
+    
+    .outline-item.level-5 {
+        padding-left: 3rem;
+    }
+    
+    .outline-item.level-6 {
+        padding-left: 3.5rem;
+    }
+}
+
+/* 标题高亮效果 */
+.heading-highlighted {
+    background-color: rgba(var(--primary-rgb), 0.1);
+    padding: 0.5rem;
+    border-radius: 5px;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+    animation: headingHighlight 2s ease-in-out;
+}
+
+@keyframes headingHighlight {
+    0% {
+        background-color: rgba(var(--primary-rgb), 0.2);
+        transform: translateX(5px);
+    }
+    50% {
+        background-color: rgba(var(--primary-rgb), 0.15);
+    }
+    100% {
+        background-color: rgba(var(--primary-rgb), 0.1);
+        transform: translateX(0);
+    }
+}
+
+/* 没有大纲时的样式 */
+.no-outline {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.9rem;
 } 
