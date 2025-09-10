@@ -446,15 +446,16 @@
 }
 
 .blog-post-content code {
-    font-family: 'Fira Code', monospace;
-    background-color: rgba(var(--primary-rgb), 0.08);
+    font-family: inherit;
+    background-color: #ECEBFE;
+    color: #BB9AF7;
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
     font-size: 0.9em;
 }
 
 .blog-post-content pre {
-    background-color: #1a1b26;
+    background-color: #222436;
     border-radius: 10px;
     padding: 1rem;
     overflow-x: auto;
@@ -463,12 +464,12 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     position: relative;
     scrollbar-width: thin;
-    scrollbar-color: rgba(122, 162, 247, 0.4) rgba(26, 27, 38, 0.1);
+    scrollbar-color: rgba(122, 162, 247, 0.4) rgba(34, 36, 54, 0.1);
 }
 
 .blog-post-content pre::-webkit-scrollbar {
     height: 8px;
-    background-color: rgba(26, 27, 38, 0.1);
+    background-color: rgba(34, 36, 54, 0.1);
     border-radius: 4px;
 }
 
@@ -484,7 +485,7 @@
 }
 
 .blog-post-content pre::-webkit-scrollbar-track {
-    background-color: rgba(26, 27, 38, 0.3);
+    background-color: rgba(34, 36, 54, 0.3);
     border-radius: 4px;
 }
 
