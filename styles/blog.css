@@ -515,32 +515,75 @@
 
 .copy-button {
     position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: rgba(122, 162, 247, 0.2);
-    border: none;
-    border-radius: 4px;
-    color: #c0caf5;
-    padding: 0.3rem 0.6rem;
-    font-size: 0.75rem;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: #a9b1d6;
+    padding: 0.5rem;
+    font-size: 0.875rem;
     cursor: pointer;
     transition: all 0.2s ease;
     opacity: 0;
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    backdrop-filter: blur(10px);
 }
 
 .copy-button i {
-    font-size: 0.8rem;
+    font-size: 0.875rem;
 }
 
 .copy-button:hover {
-    background: rgba(122, 162, 247, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #c0caf5;
+    transform: scale(1.05);
 }
 
 .copy-button.copied {
-    background: rgba(110, 212, 160, 0.4);
+    background: rgba(158, 206, 106, 0.2);
+    border-color: rgba(158, 206, 106, 0.4);
+    color: #9ece6a;
+    animation: copySuccess 0.3s ease-out;
+}
+
+.copy-button.copied i {
+    animation: checkScale 0.3s ease-out;
+}
+
+@keyframes copySuccess {
+    0% {
+        transform: scale(1.05);
+        background: rgba(158, 206, 106, 0.1);
+    }
+    50% {
+        transform: scale(1.15);
+        background: rgba(158, 206, 106, 0.3);
+    }
+    100% {
+        transform: scale(1.05);
+        background: rgba(158, 206, 106, 0.2);
+    }
+}
+
+@keyframes checkScale {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 pre:hover .copy-button {

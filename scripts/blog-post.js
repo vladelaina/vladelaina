@@ -184,19 +184,22 @@ async function loadBlogPost(slug) {
             // 为所有代码块添加复制按钮
             const copyBtn = document.createElement('button');
             copyBtn.className = 'copy-button';
-            copyBtn.innerHTML = `<i class="far fa-copy"></i> ${window.i18n.t('copyCode')}`;
+            copyBtn.innerHTML = `<i class="far fa-copy"></i>`;
+            copyBtn.title = 'Copy';
             
             // 添加复制功能
             copyBtn.addEventListener('click', function() {
                 navigator.clipboard.writeText(codeText).then(() => {
                     // 显示复制成功状态
                     copyBtn.classList.add('copied');
-                    copyBtn.innerHTML = `<i class="fas fa-check"></i> ${window.i18n.t('copied')}`;
+                    copyBtn.innerHTML = `<i class="fas fa-check"></i>`;
+                    copyBtn.title = 'Copied';
                     
                     // 2秒后恢复原状
                     setTimeout(() => {
                         copyBtn.classList.remove('copied');
-                        copyBtn.innerHTML = `<i class="far fa-copy"></i> ${window.i18n.t('copyCode')}`;
+                        copyBtn.innerHTML = `<i class="far fa-copy"></i>`;
+                        copyBtn.title = 'Copy';
                     }, 2000);
                 }).catch(err => {
                     console.error('复制失败:', err);
