@@ -6,7 +6,7 @@ thumbnail: blogs/Images/windows.webp
 tags: [开发环境, Windows, 软件推荐]
 -->
 
-# 这里是vladelaina的windows设置
+# Here are vladelaina‘s Windows settings and some solutions to problems
 
 ## Skip Online Updates
 
@@ -147,6 +147,7 @@ tags: [开发环境, Windows, 软件推荐]
 ## WeChat Mini Program Video Download Solution
 
 [res-downloader](https://github.com/putyy/res-downloader)(to obtain M3M8 addresses) + [M3U8-Downloader](https://github.com/HeiSir2014/M3U8-Downloader)(to download video segments and merge them into a complate file)
+
 
 
 
