@@ -172,7 +172,7 @@ function createBlogCard(post) {
     card.innerHTML = `
         <div class="shine-effect"></div>
         <a href="blog-post.html?slug=${post.slug}" class="blog-card-image-link">
-            <img src="${thumbnailPath}" alt="${post.title}" class="blog-card-image">
+            <img src="${thumbnailPath}" alt="${post.title}" class="blog-card-image" onerror="this.src='assets/blog-default.jpg'">
         </a>
         <div class="blog-card-content">
             <h3 class="blog-card-title"><a href="blog-post.html?slug=${post.slug}">${post.title}</a></h3>
