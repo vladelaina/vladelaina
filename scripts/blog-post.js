@@ -314,7 +314,7 @@ async function loadRelatedPosts(currentSlug) {
                         slug: slug,
                         title: metadata.title || slug,
                         date: metadata.date || new Date().toISOString().split('T')[0],
-                        thumbnail: `blogs/Images/${slug}.webp`
+                        thumbnail: `./blogs/Images/${slug}.webp`
                     });
                 }
             } catch (error) {
@@ -337,7 +337,7 @@ async function loadRelatedPosts(currentSlug) {
                 
                 relatedPostEl.innerHTML = `
                     <a href="blog-post.html?slug=${post.slug}" class="related-post-image-link">
-                        <img src="${post.thumbnail}" alt="${post.title}" class="related-post-image" onerror="this.src='assets/blog-default.jpg'">
+                        <img src="${post.thumbnail}" alt="${post.title}" class="related-post-image" onerror="this.src='./assets/blog-default.jpg'">
                     </a>
                     <div class="related-post-content">
                         <h3 class="related-post-title"><a href="blog-post.html?slug=${post.slug}">${post.title}</a></h3>
