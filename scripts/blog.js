@@ -87,7 +87,7 @@ async function loadBlogPosts() {
                     title: metadata.title || slug,
                     date: metadata.date || new Date().toISOString().split('T')[0],
                     description: metadata.description || '暂无描述',
-                    thumbnail: metadata.thumbnail || '',
+                    thumbnail: `blogs/Images/${slug}.webp`,
                     tags: metadata.tags || []
                 });
             } catch (error) {
@@ -165,8 +165,8 @@ function createBlogCard(post) {
     const dateObj = new Date(post.date);
     const formattedDate = `${dateObj.getFullYear()}-${String(dateObj.getMonth() + 1).padStart(2, '0')}-${String(dateObj.getDate()).padStart(2, '0')}`;
     
-    // 处理缩略图路径
-    let thumbnailPath = post.thumbnail || 'assets/blog-default.jpg';
+    // 处理缩略图路径（已在loadBlogPosts中处理，这里直接使用）
+    let thumbnailPath = post.thumbnail;
     
     // 创建博客卡片HTML
     card.innerHTML = `

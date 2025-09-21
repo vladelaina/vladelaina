@@ -2,7 +2,6 @@
 title: Git
 date: 2025-05-08
 description: 提交关键字和一些基本的说明
-thumbnail: blogs/Images/git.webp
 tags: [Git]
 -->
 

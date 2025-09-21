@@ -2,7 +2,6 @@
 title: 如何免费上架微软应用商店
 date: 2025-05-29
 description: 完全免费！无需对象存储!无需代码签名!
-thumbnail: blogs/Images/Microsoft_store_submission_guide.webp
 tags: [Microsoft Store]
 -->
 
