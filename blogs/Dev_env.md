@@ -103,7 +103,8 @@ tags: [开发环境, Windows, 软件推荐]
   >     - 缩放窗口保持宽高比
   >
   > - **声音**
-  >   - 关闭播放时开启规格化
+  >    -规格化/混响
+  >     - [关闭]播放时开启规格化
 
 
 - [wezterm](https://wezterm.org/install/windows.html) - [设置](https://github.com/vladelaina/dotfiles)
@@ -147,12 +148,6 @@ tags: [开发环境, Windows, 软件推荐]
 ## WeChat Mini Program Video Download Solution
 
 [res-downloader](https://github.com/putyy/res-downloader)(to obtain M3M8 addresses) + [M3U8-Downloader](https://github.com/HeiSir2014/M3U8-Downloader)(to download video segments and merge them into a complate file)
-
-
-
-
-
-
 
 
 
