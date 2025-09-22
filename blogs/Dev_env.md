@@ -98,6 +98,7 @@ tags: [开发环境, Windows, 软件推荐]
   > - **播放**
   >   - 记忆视频播放位置
   >   - 鼠标指向进度条时显示缩略图
+  >   - 鼠标在进度条上时显示时间
   >   - 宽高比
   >     - 缩放窗口保持宽高比
   >
@@ -146,6 +147,7 @@ tags: [开发环境, Windows, 软件推荐]
 ## WeChat Mini Program Video Download Solution
 
 [res-downloader](https://github.com/putyy/res-downloader)(to obtain M3M8 addresses) + [M3U8-Downloader](https://github.com/HeiSir2014/M3U8-Downloader)(to download video segments and merge them into a complate file)
+
 
 
 
