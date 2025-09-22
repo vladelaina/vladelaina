@@ -81,7 +81,7 @@ tags: [开发环境, Windows, 软件推荐]
 
   - [壁纸](https://www.123pan.com/?homeFilePath=5997681,10346464,7363533)
 
-- [potplayer](https://potplayer.io/?lang=zh_CN) - 播放器  
+- [potplayer](https://potplayer.io/?lang=zh_CN) -- [skin](https://github.com/vladelaina/dotfiles/tree/main/.winprofile/backup/potplayer)
   > - **基本**
   >   - 关闭自动更新
   >   - 启动
@@ -146,6 +146,7 @@ tags: [开发环境, Windows, 软件推荐]
 ## WeChat Mini Program Video Download Solution
 
 [res-downloader](https://github.com/putyy/res-downloader)(to obtain M3M8 addresses) + [M3U8-Downloader](https://github.com/HeiSir2014/M3U8-Downloader)(to download video segments and merge them into a complate file)
+
 
 
 
