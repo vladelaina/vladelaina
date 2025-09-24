@@ -5,6 +5,11 @@ description: Some deeply inspiring words
 tags: []
 -->
 
+"Go after what it is that creates meaning in your life and then trust yourself to handle the stress that follows."  
+—— Kelly McGonigal, [TED Talk: *How to Make Stress Your Fried*](https://www.youtube.com/watch?v=RcGyVTAoXEU)
+
+
+
  The older I get, the more I see how much
 motivations matter. The Zune was crappy because the
 people at Microsoft don’t really love music or art the
@@ -14,5 +19,6 @@ doing something for yourself, or your best friend or
 family, you’re not going to cheese out. If you don’t love
 something, you’re not going to go the extra mile, work
 the extra weekend, challenge the status quo as much. —— [*Steve Jobs*](https://www.readdiary.com/wp-content/uploads/2022/05/Steve-Jobs-PDFDrive-1.pdf#page=550)
+
 
 
