@@ -102,3 +102,9 @@ git push -u origin main
 
 🚩 第一次推送使用 `-u` 参数，将 `main` 分支与远程仓库关联。
 
+-----
+
+导出最近 80 次提交的提交信息到一个文本文件中
+```
+git log -n 80 --pretty=format:"%s" > git_messages.txt
+```
