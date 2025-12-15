@@ -1,4 +1,4 @@
-# Hi 👋, This is @[vladelaina](https://vladelaina.com/)<img src="https://github.com/user-attachments/assets/09845430-69f0-407a-a0bf-253f381d851d" alt="cat" width="80"/>
+# Ciallo～(∠・ω<)⌒★, This is @[vladelaina](https://vladelaina.com/)<img src="https://github.com/user-attachments/assets/09845430-69f0-407a-a0bf-253f381d851d" alt="cat" width="80"/>
 
 ### Code is poetry, the terminal is a canvas, and the kernel is as free as the soul. I love tinkering, fear no refactoring, and enjoy the process of starting from scratch each time. I write love letters in Nvim 💌, track heartbeats with Git❤️‍🔥  — life is like an anime series, with every season worth looking forward to 🌸.
 
