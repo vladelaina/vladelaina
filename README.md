@@ -8,7 +8,7 @@
 
 > [Vladilena Milizé](https://en.wikipedia.org/wiki/86_(novel_series)) & [Elaina](https://en.wikipedia.org/wiki/Wandering_Witch:_The_Journey_of_Elaina)
 >
-> <a href="https://en.wikipedia.org/wiki/86_(novel_series)"><img src="https://github.com/user-attachments/assets/3543e282-41ae-4f0f-a695-7e20e18e51cb" height="560" alt="Vladilena"/></a> <a href="https://en.wikipedia.org/wiki/Wandering_Witch:_The_Journey_of_Elaina"><img src="https://github.com/user-attachments/assets/0778afdc-0915-4689-851e-d2fcd5b65007" height="560" alt="Elaina"/></a>
+> <a href="https://en.wikipedia.org/wiki/86_(novel_series)"><img src="https://github.com/user-attachments/assets/3543e282-41ae-4f0f-a695-7e20e18e51cb" height="360" alt="Vladilena"/></a> <a href="https://en.wikipedia.org/wiki/Wandering_Witch:_The_Journey_of_Elaina"><img src="https://github.com/user-attachments/assets/0778afdc-0915-4689-851e-d2fcd5b65007" height="360" alt="Elaina"/></a>
 
 
 
