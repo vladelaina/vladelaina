@@ -14,6 +14,6 @@
 
 
 ### 🍉Tools and Languages:
-[![My Skills](https://skillicons.dev/icons?i=arch,neovim,c,rust,ts)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=arch,neovim,c,rust,ts,python)](https://skillicons.dev)
 
 
