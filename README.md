@@ -6,6 +6,8 @@
 > [Vladilena Milizé ](https://en.wikipedia.org/wiki/86_(novel_series))  and [Elaina](https://en.wikipedia.org/wiki/Wandering_Witch:_The_Journey_of_Elaina)
 
 
+> 🎨 Avatar illustrated by [透依(とうえ)](https://www.pixiv.net/users/26001869)
+
 
 [![Vladelaina's GitHub stats](https://github-readme-stats.vercel.app/api?username=vladelaina&show_icons=true&theme=tokyonight)](https://github.com/anuraghazra/github-readme-stats)
 
