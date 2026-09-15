@@ -1,1 +1,3 @@
 .xmake/
+node_modules/
+dist/

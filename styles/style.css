@@ -68,56 +68,6 @@ body {
     box-sizing: border-box;
 }
 
-/* --- 页头/导航 --- */
-.main-header {
-    display: none;
-}
-
-.main-header:hover {
-    display: none;
-}
-
-.main-header .container {
-    display: none;
-}
-
-.logo {
-    display: none;
-}
-
-.logo-img {
-    display: none;
-}
-
-.logo:hover .logo-img {
-    display: none;
-}
-
-.logo-img:hover {
-    display: none;
-}
-
-.nav-links {
-    display: none;
-}
-
-.nav-links a {
-    display: none;
-}
-
-.nav-links a:hover {
-    display: none;
-}
-
-.nav-links a::after {
-    display: none;
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    display: none;
-}
-
 /* --- 英雄区域 --- */
 .hero {
     padding: 4rem 0 5rem;

@@ -8,6 +8,8 @@ const translations = {
         'homeLink': '首页',
         'blogLink': '博客',
         'friendLink': '友链',
+        'supportLink': '支持项目',
+        'sponsorLink': '赞助开发者',
         
         // 友链页面
         'friendsPageTitle': '友情链接',
@@ -63,7 +65,7 @@ const translations = {
         'bilibili': 'Bilibili',
         
         // 页脚
-        'copyright': '© 2025 vladelaina. All Rights Reserved.',
+        'copyright': '© 2026 vladelaina. All Rights Reserved.',
         
         // 其他
         'backToTop': '返回顶部',
@@ -78,6 +80,8 @@ const translations = {
         'homeLink': 'Home',
         'blogLink': 'Blog',
         'friendLink': 'Friends',
+        'supportLink': 'Support',
+        'sponsorLink': 'Sponsor Developer',
         
         // Friends page
         'friendsPageTitle': 'Friend Links',
@@ -133,7 +137,7 @@ const translations = {
         'bilibili': 'Bilibili',
         
         // Footer
-        'copyright': '© 2025 vladelaina. All Rights Reserved.',
+        'copyright': '© 2026 vladelaina. All Rights Reserved.',
         
         // Others
         'backToTop': 'Back to Top',

@@ -1,0 +1,30 @@
+@import url('./support/payment-methods.css');
+@import url('./support/support-options.css');
+@import url('./support/supporter-summary.css');
+@import url('./support/supporter-list.css');
+@import url('./support/page-overrides.css');
+@import url('./support/open-projects.css');
+.supporters .section-subtitle:empty { display: none; }
+/* Match the personal site's light canvas: support blocks stay unfilled. */
+.support-project,
+.support-details,
+.supporters,
+.support-method,
+.support-card,
+.supporters-table-wrap,
+.supporters-table,
+.support-total-top {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+.support-method::before,
+.support-method::after,
+.support-card::before,
+.support-card::after,
+.supporters::before,
+.supporters::after { background: transparent !important; }
+/* Keep support navigation and cards in the site's flat color language. */
+.main-header .nav-button,
+.main-header .nav-button:hover,
+.support-card .support-btn,
+.support-card .support-btn:hover { background: var(--primary-color) !important; background-image: none !important; }

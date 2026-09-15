@@ -21,70 +21,12 @@
     <link rel="icon" type="image/png" href="assets/vladelaina.jpg">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1828809091988486"
      crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/navigation.css">
 </head>
 <body>
-    <div class="scroll-progress-container" id="scrollProgressContainer">
-        <div class="scroll-progress-glow"></div>
-        <div class="scroll-progress-particles">
-            <span class="particle p1"></span>
-            <span class="particle p2"></span>
-            <span class="particle p3"></span>
-            <span class="particle p4"></span>
-            <span class="particle p5"></span>
-            <span class="particle p6"></span>
-            <span class="particle p7"></span>
-            <span class="particle p8"></span>
-        </div>
-        <svg class="scroll-progress-circle" viewBox="0 0 100 100">
-            <defs>
-                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#7aa2f7" />
-                    <stop offset="50%" stop-color="#9aaee8" />
-                    <stop offset="100%" stop-color="#f77daa" />
-                </linearGradient>
-                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="3" result="blur" />
-                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                </filter>
-            </defs>
-            <circle class="scroll-progress-circle-bg" cx="50" cy="50" r="45"></circle>
-            <circle class="scroll-progress-circle-fill" cx="50" cy="50" r="45"></circle>
-            <circle class="scroll-progress-circle-inner" cx="50" cy="50" r="35"></circle>
-            <path class="scroll-progress-circle-deco" d="M50,15 A35,35 0 0,1 85,50 A35,35 0 0,1 50,85 A35,35 0 0,1 15,50 A35,35 0 0,1 50,15 Z" />
-        </svg>
-        <div class="scroll-progress-icon">
-            <i class="fas fa-arrow-up"></i>
-        </div>
-        <div class="scroll-progress-emoji-container">
-            <span class="emoji emoji-rocket">🚀</span>
-            <span class="emoji emoji-star">⭐</span>
-            <span class="emoji emoji-heart">💖</span>
-            <span class="emoji emoji-sparkles">✨</span>
-        </div>
-        <div class="scroll-progress-stars">
-            <span class="star star-1">✦</span>
-            <span class="star star-2">✧</span>
-            <span class="star star-3">✦</span>
-            <span class="star star-4">✧</span>
-            <span class="star star-5">✦</span>
-            <span class="star star-6">✧</span>
-        </div>
-        <div class="scroll-progress-percentage">0%</div>
-        <div class="scroll-progress-tooltip" data-i18n="backToTop">返回顶部</div>
-    </div>
 
-    <header class="blog-header">
-        <div class="container">
-            <nav class="blog-nav">
-                <a href="index.html" class="blog-nav-logo">vladelaina</a>
-                <ul class="blog-nav-links">
-                    <li><a href="index.html" data-i18n="homeLink">首页</a></li>
-                    <li><a href="blog.html" class="active" data-i18n="blogLink">博客</a></li>
-                    <li><a href="friends.html" data-i18n="friendLink">友链</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+
+    <header class="main-header"></header>
 
     <main>
         <section class="blog-hero">
@@ -111,7 +53,7 @@
 
     <footer class="main-footer">
         <div class="container">
-            <p data-i18n="copyright">&copy; 2025 vladelaina. All Rights Reserved.</p>
+            <p data-i18n="copyright">&copy; 2026 vladelaina. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -121,5 +63,7 @@
     <script src="scripts/i18n.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/blog.js"></script>
+    <script vite-ignore src="scripts/shared/navigation.js"></script>
+    <script vite-ignore src="scripts/shared/scroll-progress.js"></script>
 </body>
 </html> 
