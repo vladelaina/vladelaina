@@ -151,6 +151,12 @@ function translateSupportElements() {
     }
     
     const supporterCellTranslations = {
+        '支持一下，顶峰相见': 'Here is a little support. See you at the top!',
+        'catime非常古德': 'Catime is really good!',
+        '爱来自ftcai': 'Love from ftcai',
+        '作者加油💪来自冷石头boy': 'Keep it up! 💪 From 冷石头boy',
+        '用了catime和vlaina，做得很好！加油！': 'I have used Catime and vlaina. Great work! Keep it up!',
+        '好厉害': 'Amazing!',
         '支持你产出更好更多的学习工具（钱少，一点点心意啦。）': 'Supporting you in creating more and better learning tools (It is not much, just a small token of appreciation.)',
         '简单好用': 'Simple and easy to use',
         'vlaina提了一把需求，开工了开工了': 'vlaina made a feature request—time to get to work!',
