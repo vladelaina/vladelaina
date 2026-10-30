@@ -9,6 +9,7 @@ function updateSupportTotal() {
         if (!amountCell) return;
         const text = amountCell.textContent.trim();
         const match = text.replace(/[,\s]/g, '').match(/([\-\+]?)¥?([0-9]+(?:\.[0-9]+)?)/);
+        row.classList.toggle('supporter-highlight', match !== null && Number(`${match[1]}${match[2]}`) > 100);
         if (match) {
             const sign = match[1] === '-' ? -1 : 1;
             const value = parseFloat(match[2]);

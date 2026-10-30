@@ -102,6 +102,10 @@
     color: var(--primary-color);
 }
 
+.supporters-table tbody tr.supporter-highlight td {
+    color: #f77daa;
+}
+
 .supporters-table tr {
     transition: all 0.3s ease;
 }
